@@ -5,7 +5,7 @@
 | Input | Value | Source / Rationale |
 |-------|-------|-------------------|
 | Current monthly organic visits to comparison/integration pages | 12,000 | Estimate from mid-market B2B SaaS benchmark |
-| AI-search share of total organic queries in category | 18% | 2026 B2B software search estimate |
+| AI-search share of total organic queries in category | 18% | 2024 B2B software search estimate |
 | Target pages to launch | 25 | 5 comparison + 10 integration + 10 programmatic solution |
 | Average monthly organic sessions per page (mature) | 400 | Conservative benchmark for long-tail B2B SaaS pages |
 | Page ramp to 80% maturity | 90 days | SEO/AEO content ramp |
