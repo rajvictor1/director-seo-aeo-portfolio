@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprint Overview — SEO Engineering Sprint</title>
+  <style>
+:root {
+  --bg: #0a0a0f;
+  --card: #111118;
+  --text: #e8e8ed;
+  --muted: #9090a0;
+  --accent: #7c5cff;
+  --accent-2: #00d4aa;
+  --border: #1f1f2e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+nav a.home { color: var(--accent-2); text-decoration: none; font-weight: 600; }
+nav .links a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+nav .links a:hover, nav .links a.active { color: var(--accent); }
+h1 { font-size: 2rem; margin: 0 0 24px; }
+h2 { font-size: 1.4rem; margin: 36px 0 16px; color: var(--accent-2); }
+h3 { font-size: 1.15rem; margin: 28px 0 12px; }
+p { margin: 12px 0; }
+a { color: var(--accent-2); }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 12px;
+  text-align: left;
+}
+th { background: var(--card); color: var(--accent); }
+tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+code {
+  background: var(--card);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', Monaco, monospace;
+}
+pre {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}
+footer {
+  text-align: center;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+footer a { color: var(--accent-2); text-decoration: none; }
+@media (max-width: 700px) {
+  nav { flex-direction: column; gap: 12px; align-items: flex-start; }
+  nav .links a { margin-left: 0; margin-right: 16px; }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a class="home" href="../index.html">← Portfolio</a>
+      <div class="links"><a href="index.html" class="active">Overview</a><a href="tickets/all-tickets.html" class="">Tickets</a><a href="raci.html" class="">RACI</a><a href="sprint-planning.html" class="">Planning</a><a href="definition-of-done.html" class="">DoD</a><a href="retro-template.html" class="">Retro</a></div>
+    </nav>
+    <h1>Project 6 — SEO Engineering Sprint Simulation</h1>
+<h2>Executive Summary</h2>
+<p>This project simulates a 2-week SEO engineering sprint for a global marketplace. It includes a full backlog of realistic SEO tickets, a RACI chart, Definition of Done, sprint planning one-pager, and a retro template.</p>
+<p>The artifact demonstrates Director-level SEO product management: translating SEO strategy into engineering work, partnering with PMs, and running agile execution.</p>
+<hr />
+<h2>Sprint Goal</h2>
+<p>Improve technical SEO health and AI-search readiness by resolving canonical issues, rolling out schema markup, improving Core Web Vitals, and launching AEO-friendly FAQ blocks on high-traffic page templates.</p>
+<hr />
+<h2>Sprint Backlog</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Ticket</th>
+<th>Type</th>
+<th>Priority</th>
+<th>Story Points</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SEO-101</td>
+<td>Fix canonical self-reference on product pages</td>
+<td>Bug</td>
+<td>P0</td>
+<td>3</td>
+<td>To Do</td>
+</tr>
+<tr>
+<td>SEO-102</td>
+<td>Add Article schema to editorial template</td>
+<td>Feature</td>
+<td>P0</td>
+<td>5</td>
+<td>To Do</td>
+</tr>
+<tr>
+<td>SEO-103</td>
+<td>Implement FAQPage schema block for AEO content</td>
+<td>Feature</td>
+<td>P0</td>
+<td>5</td>
+<td>To Do</td>
+</tr>
+<tr>
+<td>SEO-104</td>
+<td>Improve LCP on photo gallery pages</td>
+<td>Performance</td>
+<td>P0</td>
+<td>8</td>
+<td>To Do</td>
+</tr>
+<tr>
+<td>SEO-105</td>
+<td>Add BreadcrumbList schema to category pages</td>
+<td>Feature</td>
+<td>P1</td>
+<td>3</td>
+<td>To Do</td>
+</tr>
+<tr>
+<td>SEO-106</td>
+<td>Build internal link module for related professionals</td>
+<td>Feature</td>
+<td>P1</td>
+<td>5</td>
+<td>To Do</td>
+</tr>
+<tr>
+<td>SEO-107</td>
+<td>Create XML sitemap for forum threads</td>
+<td>Feature</td>
+<td>P1</td>
+<td>5</td>
+<td>To Do</td>
+</tr>
+<tr>
+<td>SEO-108</td>
+<td>Fix redirect chains over 2 hops</td>
+<td>Bug</td>
+<td>P1</td>
+<td>3</td>
+<td>To Do</td>
+</tr>
+<tr>
+<td>SEO-109</td>
+<td>Add noindex flag for thin forum threads</td>
+<td>Feature</td>
+<td>P1</td>
+<td>3</td>
+<td>To Do</td>
+</tr>
+<tr>
+<td>SEO-110</td>
+<td>Roll out ImageObject schema on photo detail pages</td>
+<td>Feature</td>
+<td>P2</td>
+<td>5</td>
+<td>To Do</td>
+</tr>
+<tr>
+<td>SEO-111</td>
+<td>Implement hreflang self-referencing on all market domains</td>
+<td>Feature</td>
+<td>P2</td>
+<td>8</td>
+<td>To Do</td>
+</tr>
+<tr>
+<td>SEO-112</td>
+<td>Build SEO health check dashboard endpoint</td>
+<td>Feature</td>
+<td>P2</td>
+<td>5</td>
+<td>To Do</td>
+</tr>
+</tbody>
+</table>
+<p>Full ticket details: <a href="tickets/"><code>tickets/</code></a></p>
+<hr />
+<h2>RACI</h2>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>SEO (You)</th>
+<th>Product</th>
+<th>Engineering</th>
+<th>Design</th>
+<th>QA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backlog prioritization</td>
+<td>A</td>
+<td>C</td>
+<td>C</td>
+<td>I</td>
+<td>I</td>
+</tr>
+<tr>
+<td>Ticket writing</td>
+<td>A</td>
+<td>C</td>
+<td>R</td>
+<td>I</td>
+<td>I</td>
+</tr>
+<tr>
+<td>Schema implementation</td>
+<td>A</td>
+<td>I</td>
+<td>R</td>
+<td>C</td>
+<td>R</td>
+</tr>
+<tr>
+<td>Performance fixes</td>
+<td>A</td>
+<td>C</td>
+<td>R</td>
+<td>I</td>
+<td>R</td>
+</tr>
+<tr>
+<td>QA / validation</td>
+<td>A</td>
+<td>I</td>
+<td>C</td>
+<td>I</td>
+<td>R</td>
+</tr>
+<tr>
+<td>Release communication</td>
+<td>A</td>
+<td>C</td>
+<td>C</td>
+<td>I</td>
+<td>I</td>
+</tr>
+</tbody>
+</table>
+<p><strong>R = Responsible, A = Accountable, C = Consulted, I = Informed</strong></p>
+<hr />
+<h2>Definition of Done</h2>
+<p>A ticket is only "Done" when:
+- [ ] Code is reviewed and merged to <code>main</code>.
+- [ ] Schema markup passes Google's Rich Results Test (where applicable).
+- [ ] Changes are validated on staging with a crawl sample.
+- [ ] No new 404s, redirect chains, or canonical errors introduced.
+- [ ] Core Web Vitals regressions are ruled out.
+- [ ] Product Manager and SEO Lead sign off.
+- [ ] Documentation / runbook updated if needed.</p>
+<hr />
+<h2>Sprint Planning One-Pager</h2>
+<h3>Capacity</h3>
+<ul>
+<li>Engineering team: 2 backend, 1 frontend, 1 QA</li>
+<li>Total capacity: 55 story points</li>
+<li>Committed scope: 53 story points</li>
+</ul>
+<h3>Risks</h3>
+<ul>
+<li>Schema rollout may conflict with existing JSON-LD; require CMS migration.</li>
+<li>LCP fix on photo pages depends on CDN image format rollout.</li>
+<li>Hreflang change touches all 14 domains; needs coordinated release.</li>
+</ul>
+<h3>Release Plan</h3>
+<ul>
+<li>Day 1–5: Bugs and small schema tickets.</li>
+<li>Day 6–8: FAQ block and internal link module.</li>
+<li>Day 9–10: Performance + QA / staging validation.</li>
+<li>Day 10 release with SEO regression check.</li>
+</ul>
+<hr />
+<h2>Sprint Retro Template</h2>
+<h3>What Went Well</h3>
+<ul>
+<li>_</li>
+</ul>
+<h3>What Could Improve</h3>
+<ul>
+<li>_</li>
+</ul>
+<h3>Action Items</h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Owner</th>
+<th>Due</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_</td>
+<td>_</td>
+<td>_</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Files in This Project</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="README.md"><code>README.md</code></a></td>
+<td>Sprint overview</td>
+</tr>
+<tr>
+<td><a href="tickets/"><code>tickets/</code></a></td>
+<td>12 detailed SEO engineering tickets</td>
+</tr>
+<tr>
+<td><a href="raci.md"><code>raci.md</code></a></td>
+<td>Full RACI matrix</td>
+</tr>
+<tr>
+<td><a href="definition-of-done.md"><code>definition-of-done.md</code></a></td>
+<td>Definition of Done</td>
+</tr>
+<tr>
+<td><a href="sprint-planning.md"><code>sprint-planning.md</code></a></td>
+<td>Planning one-pager</td>
+</tr>
+<tr>
+<td><a href="retro-template.md"><code>retro-template.md</code></a></td>
+<td>Sprint retro template</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Built as a Director of SEO &amp; AEO portfolio piece.</em></p>
+<p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    <footer>
+      <p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    </footer>
+  </div>
+</body>
+</html>

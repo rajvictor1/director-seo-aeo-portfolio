@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Overview — AI Search Citation Dashboard</title>
+  <style>
+:root {
+  --bg: #0a0a0f;
+  --card: #111118;
+  --text: #e8e8ed;
+  --muted: #9090a0;
+  --accent: #7c5cff;
+  --accent-2: #00d4aa;
+  --border: #1f1f2e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+nav a.home { color: var(--accent-2); text-decoration: none; font-weight: 600; }
+nav .links a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+nav .links a:hover, nav .links a.active { color: var(--accent); }
+h1 { font-size: 2rem; margin: 0 0 24px; }
+h2 { font-size: 1.4rem; margin: 36px 0 16px; color: var(--accent-2); }
+h3 { font-size: 1.15rem; margin: 28px 0 12px; }
+p { margin: 12px 0; }
+a { color: var(--accent-2); }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 12px;
+  text-align: left;
+}
+th { background: var(--card); color: var(--accent); }
+tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+code {
+  background: var(--card);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', Monaco, monospace;
+}
+pre {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}
+footer {
+  text-align: center;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+footer a { color: var(--accent-2); text-decoration: none; }
+@media (max-width: 700px) {
+  nav { flex-direction: column; gap: 12px; align-items: flex-start; }
+  nav .links a { margin-left: 0; margin-right: 16px; }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a class="home" href="../index.html">← Portfolio</a>
+      <div class="links"><a href="index.html" class="active">Overview</a><a href="measurement-framework.html" class="">Framework</a><a href="dashboard.html" class="">Dashboard</a><a href="data/citation_data.json" class="">Data JSON</a><a href="data/prompt_set.csv" class="">Prompts CSV</a></div>
+    </nav>
+    <h1>Project 3 — AI Search Visibility &amp; Citation Dashboard</h1>
+<h2>Executive Summary</h2>
+<p>This project is a working dashboard and measurement framework for tracking brand visibility inside AI search answers (ChatGPT, Gemini, Claude). It is built around Hevo Data as the subject and shows how a Director of SEO &amp; AEO would measure AI-search acquisition, report to leadership, and forecast business impact.</p>
+<p>The dashboard uses simulated data because public APIs for AI-search citations do not yet exist at scale. The methodology and metrics are real, and the code structure is ready to swap in live probe data when APIs become available.</p>
+<hr />
+<h2>1. Why AI-Search Measurement Matters</h2>
+<p>B2B buyers are increasingly starting their evaluation in conversational search engines. For Hevo Data, queries like:
+- "best no-code ETL tool for Snowflake"
+- "Hevo vs Fivetran"
+- "how do I sync Salesforce to Snowflake without code"</p>
+<p>...are now being answered directly by AI models. If Hevo is not cited, competitors get the traffic, trust, and demo signups that would have come from traditional organic search.</p>
+<hr />
+<h2>2. KPI Framework</h2>
+<h3>Primary KPIs (Leadership Reporting)</h3>
+<table>
+<thead>
+<tr>
+<th>KPI</th>
+<th>Definition</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Citation Share</td>
+<td>% of target prompts where Hevo is cited</td>
+<td>45% by end of quarter</td>
+</tr>
+<tr>
+<td>Cited URL Count</td>
+<td>Unique Hevo URLs appearing in AI answers</td>
+<td>+40% vs baseline</td>
+</tr>
+<tr>
+<td>Brand Mention Trend</td>
+<td>Monthly absolute mentions across engines</td>
+<td>+25% MoM</td>
+</tr>
+<tr>
+<td>Sentiment Score</td>
+<td>% of Hevo mentions that are positive</td>
+<td>&gt; 70%</td>
+</tr>
+</tbody>
+</table>
+<h3>Secondary KPIs</h3>
+<table>
+<thead>
+<tr>
+<th>KPI</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Engine Coverage</td>
+<td>Citation rate by ChatGPT / Gemini / Claude</td>
+</tr>
+<tr>
+<td>Competitor Gap</td>
+<td>Hevo share vs Fivetran / Airbyte by engine</td>
+</tr>
+<tr>
+<td>Prompt Coverage</td>
+<td>% of target prompt set probed</td>
+</tr>
+<tr>
+<td>URL Diversity</td>
+<td>Number of distinct Hevo pages cited</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>3. Data Collection Methodology</h2>
+<h3>Prompt Set</h3>
+<p>A fixed set of 150 prompts representing category, comparison, integration, capability, brand, and trust intent. See <a href="data/prompt_set.csv"><code>data/prompt_set.csv</code></a> for a sample.</p>
+<h3>Probe Sampling</h3>
+<ul>
+<li>Run 150 probes per month across ChatGPT, Gemini, and Claude.</li>
+<li>Record whether Hevo is mentioned, which URL(s) are cited, and sentiment.</li>
+<li>Rotate a subset of prompts monthly to capture emerging queries.</li>
+</ul>
+<h3>Automation</h3>
+<p>Until stable APIs exist:
+- Manual sampling with structured logging
+- Future: OpenAI / Anthropic / Google APIs for programmatic answer extraction
+- Future: third-party AEO monitoring tools</p>
+<hr />
+<h2>4. Dashboard</h2>
+<p>The interactive dashboard is at <a href="dashboard.html"><code>dashboard.html</code></a>.</p>
+<p>It shows:
+- Monthly citation share trend (Hevo vs competitors)
+- Brand mentions by AI engine
+- Sentiment breakdown
+- Top cited Hevo URLs
+- Forecast tying citations to estimated traffic</p>
+<hr />
+<h2>5. Sample Findings from Simulated Data</h2>
+<table>
+<thead>
+<tr>
+<th>Finding</th>
+<th>Implication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hevo citation share grew from 12% to 32% over 6 months</td>
+<td>AEO playbook is working</td>
+</tr>
+<tr>
+<td>ChatGPT is the strongest engine for Hevo</td>
+<td>Prioritize ChatGPT-optimized content</td>
+</tr>
+<tr>
+<td>Comparison pages are the most cited URLs</td>
+<td>Double down on vs-pages</td>
+</tr>
+<tr>
+<td>Sentiment is 75%+ positive</td>
+<td>Reputation management is effective</td>
+</tr>
+<tr>
+<td>Fivetran still leads overall share</td>
+<td>Close gap with more authority content</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. Forecast Model</h2>
+<h3>Logic</h3>
+<ul>
+<li>Each AI citation ≈ 3–5 incremental organic clicks to the cited URL</li>
+<li>1,000 monthly AI citations ≈ 3,000–5,000 incremental sessions</li>
+<li>At 2.5% demo CVR and 15% SQL rate ≈ 11–19 SQLs per month</li>
+<li>At 20% close and $15K ACV ≈ $33K–$57K new monthly ACV</li>
+</ul>
+<h3>90-Day Target</h3>
+<ul>
+<li>Increase Hevo citation share from 32% to 45% across target prompt set</li>
+<li>Estimated incremental impact: 5,000–8,000 sessions, 12–20 SQLs, $36K–$60K new ACV</li>
+</ul>
+<hr />
+<h2>7. Reporting Cadence</h2>
+<table>
+<thead>
+<tr>
+<th>Report</th>
+<th>Audience</th>
+<th>Frequency</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AEO Pulse</td>
+<td>SEO team</td>
+<td>Weekly</td>
+<td>Mention counts, new cited URLs, anomalies</td>
+</tr>
+<tr>
+<td>AEO Review</td>
+<td>Head of Marketing</td>
+<td>Monthly</td>
+<td>Citation share, competitor gap, action items</td>
+</tr>
+<tr>
+<td>Board Snapshot</td>
+<td>C-level</td>
+<td>Quarterly</td>
+<td>Traffic forecast, pipeline impact, ROI</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>8. Files in This Project</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="README.md"><code>README.md</code></a></td>
+<td>Strategy and methodology</td>
+</tr>
+<tr>
+<td><a href="dashboard.html"><code>dashboard.html</code></a></td>
+<td>Interactive HTML dashboard</td>
+</tr>
+<tr>
+<td><a href="data/citation_data.json"><code>data/citation_data.json</code></a></td>
+<td>Simulated citation dataset</td>
+</tr>
+<tr>
+<td><a href="data/prompt_set.csv"><code>data/prompt_set.csv</code></a></td>
+<td>Target prompt set sample</td>
+</tr>
+<tr>
+<td><a href="measurement-framework.md"><code>measurement-framework.md</code></a></td>
+<td>Detailed KPI and reporting specs</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Built as a Director of SEO &amp; AEO portfolio piece. Dashboard data is simulated to demonstrate methodology.</em></p>
+<p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    <footer>
+      <p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    </footer>
+  </div>
+</body>
+</html>

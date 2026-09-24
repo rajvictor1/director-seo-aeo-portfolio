@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campaign Blueprint — Offsite SEO & Digital PR Blueprint</title>
+  <style>
+:root {
+  --bg: #0a0a0f;
+  --card: #111118;
+  --text: #e8e8ed;
+  --muted: #9090a0;
+  --accent: #7c5cff;
+  --accent-2: #00d4aa;
+  --border: #1f1f2e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+nav a.home { color: var(--accent-2); text-decoration: none; font-weight: 600; }
+nav .links a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+nav .links a:hover, nav .links a.active { color: var(--accent); }
+h1 { font-size: 2rem; margin: 0 0 24px; }
+h2 { font-size: 1.4rem; margin: 36px 0 16px; color: var(--accent-2); }
+h3 { font-size: 1.15rem; margin: 28px 0 12px; }
+p { margin: 12px 0; }
+a { color: var(--accent-2); }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 12px;
+  text-align: left;
+}
+th { background: var(--card); color: var(--accent); }
+tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+code {
+  background: var(--card);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', Monaco, monospace;
+}
+pre {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}
+footer {
+  text-align: center;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+footer a { color: var(--accent-2); text-decoration: none; }
+@media (max-width: 700px) {
+  nav { flex-direction: column; gap: 12px; align-items: flex-start; }
+  nav .links a { margin-left: 0; margin-right: 16px; }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a class="home" href="../index.html">← Portfolio</a>
+      <div class="links"><a href="index.html" class="active">Overview</a><a href="assets/pitch-templates.html" class="">Pitches</a><a href="assets/campaign-timeline.html" class="">Timeline</a><a href="assets/media-list.csv" class="">Media List</a><a href="assets/kpi-tracker.csv" class="">KPI Tracker</a></div>
+    </nav>
+    <h1>Project 5 — Offsite SEO &amp; Digital PR Campaign Blueprint</h1>
+<h2>Executive Summary</h2>
+<p>This project designs a digital PR and offsite SEO campaign for a B2B SaaS data integration platform. The campaign is built to earn authoritative links, brand mentions, and review-site authority that improve organic rankings and AI-search citations.</p>
+<p>The blueprint includes:
+- Linkable asset strategy
+- Target publication and journalist list
+- Outreach templates and cadence
+- Reputation management plan
+- KPI tracker
+- PR-team partnership model</p>
+<hr />
+<h2>1. Campaign Objective</h2>
+<p>Position the B2B SaaS product as the best-in-class no-code ETL solution for mid-market data teams by earning high-authority links and brand mentions across data engineering, SaaS, and business-press outlets.</p>
+<h3>Goals (12 Months)</h3>
+<table>
+<thead>
+<tr>
+<th>KPI</th>
+<th>Baseline</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Referring domains</td>
+<td>800</td>
+<td>1,400</td>
+</tr>
+<tr>
+<td>Domain Rating (Ahrefs-equivalent)</td>
+<td>72</td>
+<td>78</td>
+</tr>
+<tr>
+<td>Brand search volume trend</td>
+<td>flat</td>
+<td>+30%</td>
+</tr>
+<tr>
+<td>Authority citations in AI answers</td>
+<td>18%</td>
+<td>35%</td>
+</tr>
+<tr>
+<td>Review count on G2</td>
+<td>270</td>
+<td>500</td>
+</tr>
+<tr>
+<td>Referral sessions from PR/links</td>
+<td>4,000/mo</td>
+<td>10,000/mo</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. Linkable Asset Strategy</h2>
+<h3>Asset 1: State of Data Integration Report</h3>
+<ul>
+<li><strong>Format:</strong> Annual report with original survey data.</li>
+<li><strong>Data:</strong> 500+ data leaders surveyed on stack, budget, and tool preferences.</li>
+<li><strong>Earned media angle:</strong> proprietary benchmarks and trend predictions.</li>
+<li><strong>Estimated links:</strong> 40–80 high-authority links.</li>
+</ul>
+<h3>Asset 2: ETL Pricing Calculator</h3>
+<ul>
+<li><strong>Format:</strong> Interactive tool comparing total cost of ownership across Fivetran, Airbyte, Stitch, Matillion, Hevo.</li>
+<li><strong>Earned media angle:</strong> transparency in a famously opaque market.</li>
+<li><strong>Estimated links:</strong> 30–50 links.</li>
+</ul>
+<h3>Asset 3: Open Connector Quality Index</h3>
+<ul>
+<li><strong>Format:</strong> Public scorecard ranking connector reliability, latency, and coverage across major tools.</li>
+<li><strong>Earned media angle:</strong> engineering credibility and vendor-neutral data.</li>
+<li><strong>Estimated links:</strong> 25–40 links.</li>
+</ul>
+<h3>Asset 4: Customer Data Story Series</h3>
+<ul>
+<li><strong>Format:</strong> 4 case studies with hard metrics (cost savings, hours saved, data volume).</li>
+<li><strong>Earned media angle:</strong> real ROI proof points.</li>
+<li><strong>Estimated links:</strong> 15–25 links.</li>
+</ul>
+<hr />
+<h2>3. Target Publication List</h2>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Publications</th>
+<th>Goal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tier 1</td>
+<td>TechCrunch, The Information, VentureBeat, Forbes Tech</td>
+<td>Brand awareness, high DR links</td>
+</tr>
+<tr>
+<td>Tier 2</td>
+<td>Datanami, DBTA, Analytics India Magazine, KDnuggets</td>
+<td>Industry authority, niche links</td>
+</tr>
+<tr>
+<td>Tier 3</td>
+<td>Data Engineering Podcast, Analytics Engineering Guide, MotherDuck blog</td>
+<td>Community trust, referral traffic</td>
+</tr>
+<tr>
+<td>Tier 4</td>
+<td>G2, Capterra, Gartner Peer Insights, TrustRadius</td>
+<td>Review authority, bottom-funnel trust</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>4. Journalist / Influencer Outreach Targets</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Focus</th>
+<th>Sample Outlets</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enterprise tech reporter</td>
+<td>Data stack, cloud analytics</td>
+<td>TechCrunch, The Information</td>
+</tr>
+<tr>
+<td>Data tooling editor</td>
+<td>ETL/ELT, data engineering</td>
+<td>Datanami, DBTA</td>
+</tr>
+<tr>
+<td>SaaS pricing analyst</td>
+<td>Transparent pricing, TCO</td>
+<td>SaaStr, Capiche</td>
+</tr>
+<tr>
+<td>Data engineering influencer</td>
+<td>Connector quality, no-code</td>
+<td>dbt community, data Twitter/X</td>
+</tr>
+<tr>
+<td>Review platform editor</td>
+<td>Category leadership</td>
+<td>G2, Capterra</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>5. Outreach Templates</h2>
+<h3>Pitch Template: State of Data Integration Report</h3>
+<pre><code>Subject: New data: 67% of data teams overspend on ETL
+
+Hi [Name],
+
+We just released the 2024 State of Data Integration Report based on a survey
+of 500+ data leaders. A few findings that might interest your audience:
+
+- 67% say their current ETL spend is higher than expected.
+- Teams without a dedicated data engineer are 3x more likely to choose no-code tools.
+- Connector reliability, not price, is the top switch trigger.
+
+Happy to share the full report and an exclusive quote from our CEO on what
+this means for the market.
+
+Best,
+[Name]
+</code></pre>
+<h3>Follow-up Cadence</h3>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Initial pitch</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Short follow-up with one-line hook</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Share a relevant secondary asset</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Final polite close</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. Reputation Management Plan</h2>
+<h3>Review Sites</h3>
+<ul>
+<li>G2: target 500 reviews, respond to every review within 48 hours.</li>
+<li>Capterra: maintain 4.5+ star average, update product details quarterly.</li>
+<li>Gartner Peer Insights: solicit enterprise customer reviews for analyst visibility.</li>
+<li>TrustRadius: encourage detailed reviews with screenshots and use cases.</li>
+</ul>
+<h3>Comparison Pages</h3>
+<ul>
+<li>Ensure accurate listings on SaaS comparison sites.</li>
+<li>Claim and update pages on AlternativeTo, SaaS Genius, Crozdesk.</li>
+<li>Provide fresh assets (logos, screenshots, feature lists) annually.</li>
+</ul>
+<h3>Reddit / Community</h3>
+<ul>
+<li>Monitor r/dataengineering, r/snowflake, r/analytics.</li>
+<li>Participate authentically; avoid astroturfing.</li>
+<li>AMA with head of product quarterly.</li>
+</ul>
+<hr />
+<h2>7. KPI Tracker</h2>
+<p>Track monthly in a shared Google Sheet:</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Owner</th>
+<th>Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>New referring domains</td>
+<td>SEO</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>New links by asset</td>
+<td>SEO</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>DR / authority score</td>
+<td>SEO</td>
+<td>Monthly</td>
+</tr>
+<tr>
+<td>Brand search volume</td>
+<td>Growth</td>
+<td>Monthly</td>
+</tr>
+<tr>
+<td>G2 review count</td>
+<td>PMM</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>Referral sessions</td>
+<td>Analytics</td>
+<td>Monthly</td>
+</tr>
+<tr>
+<td>PR placements</td>
+<td>PR</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>AI citation mentions</td>
+<td>SEO</td>
+<td>Monthly</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>8. PR-Team Partnership Model</h2>
+<h3>Roles</h3>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>SEO Lead</th>
+<th>PR Lead</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Asset ideation</td>
+<td>Accountable</td>
+<td>Consulted</td>
+</tr>
+<tr>
+<td>Data collection</td>
+<td>Responsible</td>
+<td>Informed</td>
+</tr>
+<tr>
+<td>Media list</td>
+<td>Consulted</td>
+<td>Accountable</td>
+</tr>
+<tr>
+<td>Pitch writing</td>
+<td>Consulted</td>
+<td>Responsible</td>
+</tr>
+<tr>
+<td>Review responses</td>
+<td>Accountable</td>
+<td>Informed</td>
+</tr>
+<tr>
+<td>KPI reporting</td>
+<td>Accountable</td>
+<td>Consulted</td>
+</tr>
+</tbody>
+</table>
+<h3>Meeting Cadence</h3>
+<ul>
+<li><strong>Weekly standup</strong> during active campaign pushes.</li>
+<li><strong>Monthly review</strong> of links, placements, and competitor activity.</li>
+<li><strong>Quarterly planning</strong> for next asset and narrative.</li>
+</ul>
+<hr />
+<h2>9. 90-Day Campaign Timeline</h2>
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Activity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–2</td>
+<td>Finalize State of Data Integration survey; build media list</td>
+</tr>
+<tr>
+<td>3–4</td>
+<td>Launch survey, collect responses, draft report</td>
+</tr>
+<tr>
+<td>5–6</td>
+<td>Design report landing page; create PR kit</td>
+</tr>
+<tr>
+<td>7–8</td>
+<td>Embargo outreach to Tier 1 and Tier 2 outlets</td>
+</tr>
+<tr>
+<td>9–10</td>
+<td>Public launch, social amplification, link reclamation</td>
+</tr>
+<tr>
+<td>11–12</td>
+<td>Begin ETL pricing calculator development; review campaign</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>10. Files in This Project</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="README.md"><code>README.md</code></a></td>
+<td>Campaign strategy and blueprint</td>
+</tr>
+<tr>
+<td><a href="assets/media-list.csv"><code>assets/media-list.csv</code></a></td>
+<td>Target publications and contacts</td>
+</tr>
+<tr>
+<td><a href="assets/pitch-templates.md"><code>assets/pitch-templates.md</code></a></td>
+<td>Outreach templates</td>
+</tr>
+<tr>
+<td><a href="assets/kpi-tracker.csv"><code>assets/kpi-tracker.csv</code></a></td>
+<td>Monthly tracking template</td>
+</tr>
+<tr>
+<td><a href="assets/campaign-timeline.md"><code>assets/campaign-timeline.md</code></a></td>
+<td>Detailed 12-month timeline</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Built as a Director of SEO &amp; AEO portfolio piece.</em></p>
+<p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    <footer>
+      <p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    </footer>
+  </div>
+</body>
+</html>

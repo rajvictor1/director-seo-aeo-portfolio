@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editorial Magazine Brief — Consumer Vertical SEO Briefs</title>
+  <style>
+:root {
+  --bg: #0a0a0f;
+  --card: #111118;
+  --text: #e8e8ed;
+  --muted: #9090a0;
+  --accent: #7c5cff;
+  --accent-2: #00d4aa;
+  --border: #1f1f2e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+nav a.home { color: var(--accent-2); text-decoration: none; font-weight: 600; }
+nav .links a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+nav .links a:hover, nav .links a.active { color: var(--accent); }
+h1 { font-size: 2rem; margin: 0 0 24px; }
+h2 { font-size: 1.4rem; margin: 36px 0 16px; color: var(--accent-2); }
+h3 { font-size: 1.15rem; margin: 28px 0 12px; }
+p { margin: 12px 0; }
+a { color: var(--accent-2); }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 12px;
+  text-align: left;
+}
+th { background: var(--card); color: var(--accent); }
+tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+code {
+  background: var(--card);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', Monaco, monospace;
+}
+footer {
+  text-align: center;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+footer a { color: var(--accent-2); text-decoration: none; }
+@media (max-width: 700px) {
+  nav { flex-direction: column; gap: 12px; align-items: flex-start; }
+  nav .links a { margin-left: 0; margin-right: 16px; }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a class="home" href="../index.html">← Portfolio</a>
+      <div class="links"><a href="index.html" class="">Overview</a><a href="briefs/professional-directory.html" class="">Directory</a><a href="briefs/photo-inspiration.html" class="">Photos</a><a href="briefs/forums-discussions.html" class="">Forums</a><a href="briefs/editorial-magazine.html" class="active">Editorial</a></div>
+    </nav>
+    <h1>SEO Product Brief — Editorial Magazine</h1>
+<h2>1. Problem</h2>
+<p>The Editorial Magazine is the authority and topical cluster hub for the marketplace. It currently:
+- Lacks consistent Article schema.
+- Has weak internal linking to category and product pages.
+- Publishes standalone articles without supporting cluster content.
+- Does not target AI-search question formats.
+- Has outdated content that is not refreshed or redirected.</p>
+<p>Estimated opportunity: 30–50% organic traffic increase by turning the magazine into a structured content engine.</p>
+<hr />
+<h2>2. Hypothesis</h2>
+<p>If we restructure editorial content into topic clusters with <code>Article</code> schema, internal links to transactional pages, and AEO-friendly question-answer formatting, then magazine pages will rank for more informational and comparison queries and pass more qualified traffic to category and directory pages.</p>
+<hr />
+<h2>3. Acceptance Criteria</h2>
+<ul>
+<li>[ ] Every article uses <code>Article</code> schema with <code>headline</code>, <code>author</code>, <code>datePublished</code>, <code>dateModified</code>, <code>image</code>, <code>publisher</code>, <code>description</code>.</li>
+<li>[ ] Each article belongs to a topic cluster with a pillar page.</li>
+<li>[ ] Every article links internally to 3–7 relevant category / product / directory pages.</li>
+<li>[ ] Articles target AI-search questions with H2/H3 mirror format and direct answers.</li>
+<li>[ ] Pillar pages include FAQPage schema for cluster questions.</li>
+<li>[ ] Articles older than 12 months are reviewed quarterly; outdated articles are refreshed or 301 redirected.</li>
+<li>[ ] Editorial XML sitemap is segmented by topic cluster.</li>
+</ul>
+<hr />
+<h2>4. Engineering Tasks</h2>
+<h3>Backend</h3>
+<ul>
+<li>Add topic cluster taxonomy to CMS.</li>
+<li>Auto-generate Article schema from CMS fields.</li>
+<li>Build internal link recommendation engine based on topic similarity.</li>
+<li>Add content review workflow with aging alerts.</li>
+</ul>
+<h3>Frontend</h3>
+<ul>
+<li>Implement pillar page template with cluster navigation.</li>
+<li>Add FAQPage schema component.</li>
+<li>Add "Related articles" and "Shop the look" modules.</li>
+<li>Ensure article pages pass Core Web Vitals.</li>
+</ul>
+<h3>Content</h3>
+<ul>
+<li>Define 10 core topic clusters (e.g., kitchen design, bathroom renovation, home office).</li>
+<li>Create editorial brief templates with AEO question targets.</li>
+</ul>
+<hr />
+<h2>5. Success Metrics</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Baseline</th>
+<th>Target (90 days)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Editorial organic sessions</td>
+<td>95,000/mo</td>
+<td>140,000/mo</td>
+</tr>
+<tr>
+<td>Indexed articles</td>
+<td>42,000</td>
+<td>50,000</td>
+</tr>
+<tr>
+<td>Avg ranking for target queries</td>
+<td>Position 12</td>
+<td>Position 7</td>
+</tr>
+<tr>
+<td>Article → category page CTR</td>
+<td>4%</td>
+<td>7%</td>
+</tr>
+<tr>
+<td>Articles in top 3 positions</td>
+<td>3,200</td>
+<td>5,500</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. Dependencies</h2>
+<ul>
+<li><strong>Editorial team:</strong> cluster briefs and refresh workflow.</li>
+<li><strong>Design:</strong> pillar page template and article layout.</li>
+<li><strong>Product:</strong> internal link module integration.</li>
+</ul>
+<hr />
+<h2>7. Risks</h2>
+<ul>
+<li>Topic clusters require ongoing content commitment; plan editorial calendar before launch.</li>
+<li>Over-optimization of internal links can appear manipulative; keep them contextually relevant.</li>
+</ul>
+<hr />
+<p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    <footer>
+      <p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Measurement Framework — AI Search Citation Dashboard</title>
+  <style>
+:root {
+  --bg: #0a0a0f;
+  --card: #111118;
+  --text: #e8e8ed;
+  --muted: #9090a0;
+  --accent: #7c5cff;
+  --accent-2: #00d4aa;
+  --border: #1f1f2e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+nav a.home { color: var(--accent-2); text-decoration: none; font-weight: 600; }
+nav .links a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+nav .links a:hover, nav .links a.active { color: var(--accent); }
+h1 { font-size: 2rem; margin: 0 0 24px; }
+h2 { font-size: 1.4rem; margin: 36px 0 16px; color: var(--accent-2); }
+h3 { font-size: 1.15rem; margin: 28px 0 12px; }
+p { margin: 12px 0; }
+a { color: var(--accent-2); }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 12px;
+  text-align: left;
+}
+th { background: var(--card); color: var(--accent); }
+tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+code {
+  background: var(--card);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', Monaco, monospace;
+}
+pre {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}
+footer {
+  text-align: center;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+footer a { color: var(--accent-2); text-decoration: none; }
+@media (max-width: 700px) {
+  nav { flex-direction: column; gap: 12px; align-items: flex-start; }
+  nav .links a { margin-left: 0; margin-right: 16px; }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a class="home" href="../index.html">← Portfolio</a>
+      <div class="links"><a href="index.html" class="">Overview</a><a href="measurement-framework.html" class="active">Framework</a><a href="dashboard.html" class="">Dashboard</a><a href="data/citation_data.json" class="">Data JSON</a><a href="data/prompt_set.csv" class="">Prompts CSV</a></div>
+    </nav>
+    <h1>AI Search Citation Measurement Framework</h1>
+<h2>1. Purpose</h2>
+<p>Define how a Director of SEO &amp; AEO measures AI-search brand visibility and reports results to leadership.</p>
+<h2>2. Dimensions</h2>
+<h3>Brand</h3>
+<p>Track mentions of the target brand (Hevo Data) and key competitors (Fivetran, Airbyte, Stitch, Matillion).</p>
+<h3>Engines</h3>
+<p>ChatGPT, Gemini, Claude.</p>
+<h3>Prompt Categories</h3>
+<ul>
+<li><strong>Category</strong> — "best no-code ETL tool"</li>
+<li><strong>Comparison</strong> — "Hevo vs Fivetran"</li>
+<li><strong>Integration</strong> — "sync Salesforce to Snowflake"</li>
+<li><strong>Capability</strong> — "how to handle schema drift"</li>
+<li><strong>Brand</strong> — "Hevo Data pricing"</li>
+<li><strong>Trust</strong> — "Is Hevo HIPAA compliant"</li>
+</ul>
+<h3>Metrics</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Type</th>
+<th>Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Citation share</td>
+<td>%</td>
+<td>Mentions of brand / total relevant answers</td>
+</tr>
+<tr>
+<td>Absolute mentions</td>
+<td>Count</td>
+<td>Sum of monthly brand mentions</td>
+</tr>
+<tr>
+<td>Cited URLs</td>
+<td>Count</td>
+<td>Distinct URLs cited for brand</td>
+</tr>
+<tr>
+<td>Sentiment</td>
+<td>%</td>
+<td>Positive / neutral / negative split</td>
+</tr>
+<tr>
+<td>Engine coverage</td>
+<td>%</td>
+<td>Prompts with data per engine</td>
+</tr>
+<tr>
+<td>Competitor gap</td>
+<td>%</td>
+<td>Brand share - competitor share</td>
+</tr>
+</tbody>
+</table>
+<h2>3. Sampling Method</h2>
+<h3>Stratified Random Sampling</h3>
+<ul>
+<li>150 prompts per month</li>
+<li>30 prompts per category (6 categories)</li>
+<li>50 prompts per engine</li>
+<li>Rotate 20% of prompts monthly to capture new trends</li>
+</ul>
+<h3>Data Points per Answer</h3>
+<ul>
+<li>Was the brand mentioned? (yes/no)</li>
+<li>Was the brand cited with a URL? (yes/no)</li>
+<li>Which URL was cited?</li>
+<li>Sentiment (positive / neutral / negative)</li>
+<li>Position in answer (first / second / later)</li>
+</ul>
+<h2>4. Quality Controls</h2>
+<ul>
+<li>Two reviewers score 10% of answers to measure inter-rater reliability.</li>
+<li>Flag answers where the model contradicts itself or hallucinates facts.</li>
+<li>Exclude prompts that return errors or non-answers.</li>
+</ul>
+<h2>5. Tools</h2>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Tool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prompt management</td>
+<td>Google Sheet / Airtable</td>
+</tr>
+<tr>
+<td>Manual probing</td>
+<td>ChatGPT, Gemini, Claude web UI</td>
+</tr>
+<tr>
+<td>Structured logging</td>
+<td>CSV / JSON</td>
+</tr>
+<tr>
+<td>Dashboard</td>
+<td>Static HTML + Chart.js</td>
+</tr>
+<tr>
+<td>Future automation</td>
+<td>Platform APIs + custom scraper</td>
+</tr>
+</tbody>
+</table>
+<h2>6. Reporting</h2>
+<h3>Weekly AEO Pulse (SEO Team)</h3>
+<ul>
+<li>New mentions this week</li>
+<li>New cited URLs</li>
+<li>Anomalies (drops, competitor spikes)</li>
+<li>Action items for content / PR</li>
+</ul>
+<h3>Monthly AEO Review (Head of Marketing)</h3>
+<ul>
+<li>Citation share trend</li>
+<li>Competitor gap</li>
+<li>Top cited pages</li>
+<li>Content / schema / PR actions taken</li>
+</ul>
+<h3>Quarterly Board Snapshot (C-level)</h3>
+<ul>
+<li>AI-search share of organic strategy</li>
+<li>Forecasted traffic and pipeline impact</li>
+<li>ROI of AEO program</li>
+<li>Resource asks for next quarter</li>
+</ul>
+<h2>7. Risks and Caveats</h2>
+<ul>
+<li>AI-search citation measurement is not yet standardized.</li>
+<li>Platform APIs may restrict programmatic access.</li>
+<li>Sentiment scoring is subjective; use reviewer calibration.</li>
+<li>Correlation to revenue is directional, not causal.</li>
+</ul>
+<hr />
+<p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    <footer>
+      <p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    </footer>
+  </div>
+</body>
+</html>

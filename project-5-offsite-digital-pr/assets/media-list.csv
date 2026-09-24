@@ -1,0 +1,21 @@
+,Publication,Tier,Focus,Contact Type,Notes
+1,TechCrunch,1,Enterprise tech / SaaS,Reporter,Pitch product + data story
+2,The Information,1,Enterprise tech,Reporter,Exclusive data story
+3,VentureBeat,1,SaaS / data,Contributor,Launch coverage
+4,Forbes Tech,1,Business tech,Contributor,Executive byline opportunity
+5,Datanami,2,Data engineering,Editor,Report launch
+6,DBTA,2,Database / analytics,Editor,Connector quality index
+7,Analytics India Magazine,2,Analytics / AI,Editor,Regional angle
+8,KDnuggets,2,Data science,Contributor,Byline + data study
+9,Data Engineering Podcast,3,Community,Host,Guest appearance
+10,Analytics Engineering Guide,3,Community,Editor,Guest post
+11,MotherDuck Blog,3,Community,Editor,Collaborative post
+12,SaaStr,3,SaaS pricing / growth,Editor,TCO angle
+13,Capiche,3,SaaS pricing,Editor,Pricing calculator
+14,G2,4,Reviews,Editor,Category leadership push
+15,Capterra,4,Reviews,Editor,Profile optimization
+16,Gartner Peer Insights,4,Enterprise reviews,Analyst,Enterprise review campaign
+17,TrustRadius,4,Reviews,Editor,Detailed review program
+18,AlternativeTo,4,Comparison,Editor,Claim listing
+19,Reddit r/dataengineering,3,Community,Community,AMA + organic participation
+20,Hacker News,3,Community,Community,Launch post for tool/report

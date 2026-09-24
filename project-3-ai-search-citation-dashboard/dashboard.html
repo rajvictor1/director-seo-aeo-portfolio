@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Search Citation Dashboard — Director of SEO & AEO</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+:root {
+  --bg: #0a0a0f;
+  --card: #111118;
+  --text: #e8e8ed;
+  --muted: #9090a0;
+  --accent: #7c5cff;
+  --accent-2: #00d4aa;
+  --border: #1f1f2e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+nav a.home { color: var(--accent-2); text-decoration: none; font-weight: 600; }
+nav .links a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+nav .links a:hover { color: var(--accent); }
+h1 { font-size: 2rem; margin: 0 0 12px; }
+h2 { font-size: 1.4rem; margin: 36px 0 16px; color: var(--accent-2); }
+h3 { font-size: 1.15rem; margin: 24px 0 10px; }
+p { margin: 12px 0; color: var(--muted); }
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.stat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+.stat-value { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+.stat-label { font-size: 0.9rem; color: var(--muted); margin-top: 4px; }
+.chart-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 24px 0;
+}
+.chart-box canvas { max-height: 320px; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 0.9rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 12px;
+  text-align: left;
+}
+th { background: var(--card); color: var(--accent); }
+tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+.badge { padding: 2px 8px; border-radius: 4px; font-weight: 600; font-size: 0.8rem; }
+.badge-positive { background: rgba(0,212,170,0.15); color: var(--accent-2); }
+.badge-neutral { background: rgba(144,144,160,0.15); color: var(--muted); }
+.badge-negative { background: rgba(255,107,107,0.15); color: #ff6b6b; }
+footer {
+  text-align: center;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+footer a { color: var(--accent-2); text-decoration: none; }
+@media (max-width: 700px) {
+  nav { flex-direction: column; gap: 12px; align-items: flex-start; }
+  nav .links a { margin-left: 0; margin-right: 16px; }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a class="home" href="../index.html">← Portfolio</a>
+      <div class="links">
+        <a href="index.html">Overview</a>
+        <a href="measurement-framework.html">Framework</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="data/citation_data.json">Data JSON</a>
+      </div>
+    </nav>
+
+    <h1>AI Search Visibility & Citation Dashboard</h1>
+    <p>Track how often Hevo Data is cited across ChatGPT, Gemini, and Claude for high-intent data integration queries.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-value">31.6%</div><div class="stat-label">Hevo Citation Share (Latest)</div></div>
+      <div class="stat"><div class="stat-value">161</div><div class="stat-label">Monthly Hevo Mentions</div></div>
+      <div class="stat"><div class="stat-value">45%+</div><div class="stat-label">Target Citation Share</div></div>
+      <div class="stat"><div class="stat-value">5</div><div class="stat-label">Top Cited URLs</div></div>
+    </div>
+
+    <div class="chart-box">
+      <h2>Hevo Citation Share Trend</h2>
+      <canvas id="shareChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+      <h2>Monthly Hevo Mentions by Engine</h2>
+      <canvas id="mentionsChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+      <h2>Sentiment Breakdown by Engine (Latest Month)</h2>
+      <table>
+        <tr><th>Engine</th><th>Positive</th><th>Neutral</th><th>Negative</th></tr>
+        
+    <tr>
+      <td>ChatGPT</td>
+      <td><span class="badge badge-positive">75% positive</span></td>
+      <td><span class="badge badge-neutral">20% neutral</span></td>
+      <td><span class="badge badge-negative">5% negative</span></td>
+    </tr>
+    
+    <tr>
+      <td>Gemini</td>
+      <td><span class="badge badge-positive">74% positive</span></td>
+      <td><span class="badge badge-neutral">18% neutral</span></td>
+      <td><span class="badge badge-negative">8% negative</span></td>
+    </tr>
+    
+    <tr>
+      <td>Claude</td>
+      <td><span class="badge badge-positive">80% positive</span></td>
+      <td><span class="badge badge-neutral">15% neutral</span></td>
+      <td><span class="badge badge-negative">5% negative</span></td>
+    </tr>
+    
+      </table>
+    </div>
+
+    <div class="chart-box">
+      <h2>Most Cited Hevo URLs</h2>
+      <table>
+        <tr><th>URL</th><th>Brand</th></tr>
+        <tr><td><a href="https://hevodata.com/vs/fivetran" target="_blank">https://hevodata.com/vs/fivetran</a></td><td>Hevo Data</td></tr><tr><td><a href="https://hevodata.com/integrations/salesforce" target="_blank">https://hevodata.com/integrations/salesforce</a></td><td>Hevo Data</td></tr><tr><td><a href="https://hevodata.com/pricing" target="_blank">https://hevodata.com/pricing</a></td><td>Hevo Data</td></tr><tr><td><a href="https://hevodata.com/success-stories/thoughtspot" target="_blank">https://hevodata.com/success-stories/thoughtspot</a></td><td>Hevo Data</td></tr><tr><td><a href="https://hevodata.com/blog/schema-drift-etl" target="_blank">https://hevodata.com/blog/schema-drift-etl</a></td><td>Hevo Data</td></tr>
+      </table>
+    </div>
+
+    <div class="chart-box">
+      <h2>Forecast: AI Citations to Pipeline</h2>
+      <p>Assumptions: 3.5 incremental sessions per citation, 2.5% demo CVR, 15% SQL rate, 20% close rate, $15K ACV.</p>
+      <table>
+        <tr><th>Metric</th><th>Current Run Rate</th><th>At 45% Target</th></tr>
+        <tr><td>Monthly AI citations</td><td>~161</td><td>~229</td></tr>
+        <tr><td>Incremental sessions</td><td>~563</td><td>~802</td></tr>
+        <tr><td>Monthly SQLs</td><td>~2</td><td>~3</td></tr>
+        <tr><td>New monthly ACV</td><td>~$6,339</td><td>~$9,028</td></tr>
+      </table>
+    </div>
+
+    <footer>
+      <p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    </footer>
+  </div>
+
+  <script>
+    const data = {"months": ["2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06"], "brands": ["Hevo", "Fivetran", "Airbyte", "Stitch", "Matillion"], "shareByEngine": {"ChatGPT": {"Hevo": [12, 15, 19, 24, 28, 32], "Fivetran": [42, 40, 38, 36, 34, 32], "Airbyte": [28, 29, 30, 30, 30, 29], "Stitch": [10, 10, 9, 8, 7, 6], "Matillion": [8, 6, 4, 2, 1, 1]}, "Gemini": {"Hevo": [10, 13, 16, 20, 25, 29], "Fivetran": [44, 42, 40, 38, 35, 33], "Airbyte": [26, 27, 28, 29, 30, 30], "Stitch": [12, 12, 11, 9, 7, 5], "Matillion": [8, 6, 5, 4, 3, 3]}, "Claude": {"Hevo": [14, 17, 21, 25, 30, 34], "Fivetran": [40, 38, 36, 34, 32, 30], "Airbyte": [30, 31, 31, 32, 32, 32], "Stitch": [9, 9, 8, 7, 5, 3], "Matillion": [7, 5, 4, 2, 1, 1]}}, "mentionsByEngine": {"ChatGPT": {"Hevo": [14, 20, 28, 40, 50, 64], "Fivetran": [50, 54, 57, 59, 61, 64], "Airbyte": [34, 39, 45, 50, 54, 58], "Stitch": [12, 14, 14, 13, 13, 12], "Matillion": [10, 8, 6, 3, 2, 2]}, "Gemini": {"Hevo": [8, 12, 17, 24, 35, 46], "Fivetran": [35, 38, 42, 46, 49, 53], "Airbyte": [21, 24, 29, 35, 42, 48], "Stitch": [10, 11, 12, 11, 10, 8], "Matillion": [6, 5, 5, 5, 4, 5]}, "Claude": {"Hevo": [10, 14, 20, 28, 39, 51], "Fivetran": [28, 30, 34, 37, 42, 45], "Airbyte": [21, 25, 29, 35, 42, 48], "Stitch": [6, 7, 8, 8, 6, 4], "Matillion": [5, 4, 4, 2, 1, 2]}}, "sentiment": {"ChatGPT": {"positive": [60, 62, 65, 68, 72, 75], "neutral": [30, 28, 26, 24, 22, 20], "negative": [10, 10, 9, 8, 6, 5]}, "Gemini": {"positive": [55, 58, 62, 66, 70, 74], "neutral": [32, 30, 28, 25, 22, 18], "negative": [13, 12, 10, 9, 8, 8]}, "Claude": {"positive": [62, 65, 68, 72, 76, 80], "neutral": [28, 26, 24, 22, 18, 15], "negative": [10, 9, 8, 6, 6, 5]}}, "hevoShare": [11.9, 15.1, 18.6, 23.2, 27.6, 31.6], "hevoMentions": [32, 46, 65, 92, 124, 161], "target": 45};
+
+    new Chart(document.getElementById('shareChart'), {
+      type: 'line',
+      data: {
+        labels: data.months,
+        datasets: [{
+          label: 'Hevo citation share (%)',
+          data: data.hevoShare,
+          borderColor: '#7c5cff',
+          backgroundColor: 'rgba(124,92,255,0.1)',
+          fill: true,
+          tension: 0.3,
+          pointRadius: 4
+        }, {
+          label: 'Target (45%)',
+          data: data.months.map(() => 45),
+          borderColor: '#00d4aa',
+          borderDash: [6, 6],
+          pointRadius: 0,
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'top' } },
+        scales: { y: { beginAtZero: true, max: 60 } }
+      }
+    });
+
+    new Chart(document.getElementById('mentionsChart'), {
+      type: 'bar',
+      data: {
+        labels: data.months,
+        datasets: data.engines.map((engine, i) => ({
+          label: engine,
+          data: data.mentionsByEngine[engine].Hevo,
+          backgroundColor: ['#7c5cff', '#00d4aa', '#ffd166'][i]
+        }))
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'top' } },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+  </script>
+</body>
+</html>

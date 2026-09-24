@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprint Planning — SEO Engineering Sprint</title>
+  <style>
+:root {
+  --bg: #0a0a0f;
+  --card: #111118;
+  --text: #e8e8ed;
+  --muted: #9090a0;
+  --accent: #7c5cff;
+  --accent-2: #00d4aa;
+  --border: #1f1f2e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+nav a.home { color: var(--accent-2); text-decoration: none; font-weight: 600; }
+nav .links a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+nav .links a:hover, nav .links a.active { color: var(--accent); }
+h1 { font-size: 2rem; margin: 0 0 24px; }
+h2 { font-size: 1.4rem; margin: 36px 0 16px; color: var(--accent-2); }
+h3 { font-size: 1.15rem; margin: 28px 0 12px; }
+p { margin: 12px 0; }
+a { color: var(--accent-2); }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 12px;
+  text-align: left;
+}
+th { background: var(--card); color: var(--accent); }
+tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+code {
+  background: var(--card);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', Monaco, monospace;
+}
+pre {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}
+footer {
+  text-align: center;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+footer a { color: var(--accent-2); text-decoration: none; }
+@media (max-width: 700px) {
+  nav { flex-direction: column; gap: 12px; align-items: flex-start; }
+  nav .links a { margin-left: 0; margin-right: 16px; }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a class="home" href="../index.html">← Portfolio</a>
+      <div class="links"><a href="index.html" class="">Overview</a><a href="tickets/all-tickets.html" class="">Tickets</a><a href="raci.html" class="">RACI</a><a href="sprint-planning.html" class="active">Planning</a><a href="definition-of-done.html" class="">DoD</a><a href="retro-template.html" class="">Retro</a></div>
+    </nav>
+    <h1>Sprint Planning One-Pager</h1>
+<h2>Sprint Goal</h2>
+<p>Improve technical SEO health and AI-search readiness by resolving canonical issues, rolling out schema markup, improving Core Web Vitals, and launching AEO-friendly FAQ blocks on high-traffic page templates.</p>
+<h2>Dates</h2>
+<ul>
+<li><strong>Sprint start:</strong> Monday, Week 1</li>
+<li><strong>Sprint end:</strong> Friday, Week 2</li>
+<li><strong>Release:</strong> End of Week 2</li>
+<li><strong>Retro:</strong> Following Monday</li>
+</ul>
+<h2>Team Capacity</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Count</th>
+<th>Points Capacity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backend Engineer</td>
+<td>1</td>
+<td>18</td>
+</tr>
+<tr>
+<td>Frontend Engineer</td>
+<td>1</td>
+<td>20</td>
+</tr>
+<tr>
+<td>QA</td>
+<td>1</td>
+<td>12</td>
+</tr>
+<tr>
+<td>SEO Lead (you)</td>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Product Manager</td>
+<td>1</td>
+<td>0 (support)</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>55</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>Committed Scope: 53 Points</h2>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Tickets</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0</td>
+<td>SEO-101, SEO-102, SEO-103, SEO-104</td>
+<td>21</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>SEO-105, SEO-106, SEO-107, SEO-108, SEO-109</td>
+<td>19</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>SEO-110, SEO-111, SEO-112</td>
+<td>13</td>
+</tr>
+</tbody>
+</table>
+<h2>Release Plan</h2>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>Focus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–2</td>
+<td>Kickoff, environment setup, SEO-101 canonical fix</td>
+</tr>
+<tr>
+<td>3–4</td>
+<td>SEO-105 breadcrumbs, SEO-108 redirect chains</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Mid-sprint review, schema component planning</td>
+</tr>
+<tr>
+<td>6–7</td>
+<td>SEO-102 Article schema, SEO-103 FAQ block</td>
+</tr>
+<tr>
+<td>8</td>
+<td>SEO-106 internal links, SEO-109 noindex flag</td>
+</tr>
+<tr>
+<td>9</td>
+<td>SEO-104 LCP optimization, SEO-107 forum sitemap</td>
+</tr>
+<tr>
+<td>10</td>
+<td>QA, staging crawl, release, SEO-112 dashboard setup</td>
+</tr>
+</tbody>
+</table>
+<h2>Risks</h2>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Schema conflicts with existing JSON-LD</td>
+<td>Audit existing markup before rollout</td>
+</tr>
+<tr>
+<td>LCP fix depends on CDN image format</td>
+<td>Pair with CDN team before sprint</td>
+</tr>
+<tr>
+<td>Hreflang touches 14 domains</td>
+<td>Coordinate release window with international PM</td>
+</tr>
+<tr>
+<td>QA bottleneck on schema validation</td>
+<td>Use automated Rich Results Test sampling</td>
+</tr>
+</tbody>
+</table>
+<h2>Success Metrics</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Baseline</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Canonical error rate</td>
+<td>4.99%</td>
+<td>&lt; 1%</td>
+</tr>
+<tr>
+<td>Articles with schema</td>
+<td>0%</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>Photo gallery mobile LCP</td>
+<td>4.2s</td>
+<td>&lt; 2.0s</td>
+</tr>
+<tr>
+<td>Thin forum threads noindexed</td>
+<td>0</td>
+<td>80,000</td>
+</tr>
+<tr>
+<td>SEO health dashboard</td>
+<td>none</td>
+<td>live</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    <footer>
+      <p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    </footer>
+  </div>
+</body>
+</html>

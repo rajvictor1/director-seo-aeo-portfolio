@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Tickets — SEO Engineering Sprint</title>
+  <style>
+:root {
+  --bg: #0a0a0f;
+  --card: #111118;
+  --text: #e8e8ed;
+  --muted: #9090a0;
+  --accent: #7c5cff;
+  --accent-2: #00d4aa;
+  --border: #1f1f2e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+nav a.home { color: var(--accent-2); text-decoration: none; font-weight: 600; }
+nav .links a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+nav .links a:hover, nav .links a.active { color: var(--accent); }
+h1 { font-size: 2rem; margin: 0 0 24px; }
+h2 { font-size: 1.4rem; margin: 36px 0 16px; color: var(--accent-2); }
+h3 { font-size: 1.15rem; margin: 28px 0 12px; }
+p { margin: 12px 0; }
+a { color: var(--accent-2); }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 12px;
+  text-align: left;
+}
+th { background: var(--card); color: var(--accent); }
+tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+code {
+  background: var(--card);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', Monaco, monospace;
+}
+pre {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}
+footer {
+  text-align: center;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+footer a { color: var(--accent-2); text-decoration: none; }
+@media (max-width: 700px) {
+  nav { flex-direction: column; gap: 12px; align-items: flex-start; }
+  nav .links a { margin-left: 0; margin-right: 16px; }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a class="home" href="../index.html">← Portfolio</a>
+      <div class="links"><a href="index.html" class="">Overview</a><a href="tickets/all-tickets.html" class="active">Tickets</a><a href="raci.html" class="">RACI</a><a href="sprint-planning.html" class="">Planning</a><a href="definition-of-done.html" class="">DoD</a><a href="retro-template.html" class="">Retro</a></div>
+    </nav>
+    <h1>Ticket SEO-101 — Fix Canonical Self-Reference on Product Pages</h1>
+<p><strong>Type:</strong> Bug<br />
+<strong>Priority:</strong> P0<br />
+<strong>Story Points:</strong> 3<br />
+<strong>Assignee:</strong> Backend Engineer<br />
+<strong>Reporter:</strong> Director of SEO  </p>
+<h2>Problem</h2>
+<p>Approximately 52,000 product pages are using non-canonical URLs in their <code>rel="canonical"</code> tag, pointing to URLs with session IDs, tracking parameters, or sort parameters. This splits ranking signals and wastes crawl budget.</p>
+<h2>Acceptance Criteria</h2>
+<ul>
+<li>[ ] Every product page canonical URL matches the clean, parameter-free URL.</li>
+<li>[ ] Canonical tags are generated server-side, not injected via JS.</li>
+<li>[ ] A whitelist of allowed parameters (e.g., <code>?color=</code>) is documented.</li>
+<li>[ ] Existing canonical errors are reduced to &lt; 1% in the next crawl.</li>
+</ul>
+<h2>Implementation Notes</h2>
+<ul>
+<li>Update canonical helper in product template.</li>
+<li>Strip <code>session_id</code>, <code>utm_*</code>, <code>sort</code>, <code>ref</code> parameters.</li>
+<li>Add unit tests for canonical helper.</li>
+</ul>
+<h2>Definition of Done</h2>
+<ul>
+<li>Code reviewed and merged.</li>
+<li>Schema/Rich Results Test: N/A.</li>
+<li>Crawl validation: &lt; 1% canonical error rate.</li>
+<li>No CWV regression.</li>
+</ul>
+<hr />
+<h1>Ticket SEO-102 — Add Article Schema to Editorial Template</h1>
+<p><strong>Type:</strong> Feature<br />
+<strong>Priority:</strong> P0<br />
+<strong>Story Points:</strong> 5<br />
+<strong>Assignee:</strong> Frontend Engineer<br />
+<strong>Reporter:</strong> Director of SEO  </p>
+<h2>Problem</h2>
+<p>Editorial articles lack structured data, missing rich result opportunities in Google and citation signals for AI search engines.</p>
+<h2>Acceptance Criteria</h2>
+<ul>
+<li>[ ] <code>Article</code> schema is rendered on every article page.</li>
+<li>[ ] Required fields: <code>headline</code>, <code>author</code> (Person/Organization), <code>datePublished</code>, <code>dateModified</code>, <code>image</code>, <code>publisher</code>, <code>description</code>.</li>
+<li>[ ] Fallbacks exist for missing fields without breaking markup.</li>
+<li>[ ] Schema is validated in Rich Results Test for 50 sample articles.</li>
+</ul>
+<h2>Implementation Notes</h2>
+<ul>
+<li>Build reusable <code>ArticleSchema</code> component.</li>
+<li>Pull author info from CMS <code>author</code> relation.</li>
+<li>Use article hero image as <code>image</code> value.</li>
+</ul>
+<h2>Definition of Done</h2>
+<ul>
+<li>Component merged and deployed to 100% of article pages.</li>
+<li>50 sample pages pass Rich Results Test.</li>
+<li>No invalid markup errors in GSC.</li>
+</ul>
+<hr />
+<h1>Ticket SEO-103 — Implement FAQPage Schema Block for AEO Content</h1>
+<p><strong>Type:</strong> Feature<br />
+<strong>Priority:</strong> P0<br />
+<strong>Story Points:</strong> 5<br />
+<strong>Assignee:</strong> Frontend Engineer + CMS<br />
+<strong>Reporter:</strong> Director of SEO  </p>
+<h2>Problem</h2>
+<p>Comparison and capability pages are not marked up as FAQ pages, reducing their chance of being cited in AI search answers and featured snippets.</p>
+<h2>Acceptance Criteria</h2>
+<ul>
+<li>[ ] CMS supports an FAQ block content type.</li>
+<li>[ ] FAQ block renders visible HTML question/answer pairs.</li>
+<li>[ ] <code>FAQPage</code> JSON-LD is auto-generated from the FAQ block.</li>
+<li>[ ] FAQ block can be added to comparison, category, and editorial pages.</li>
+<li>[ ] 20 high-priority pages receive FAQ blocks in this sprint.</li>
+</ul>
+<h2>Implementation Notes</h2>
+<ul>
+<li>Extend CMS with FAQ collection type.</li>
+<li>Build frontend FAQ component with schema output.</li>
+<li>Validate no duplicate question text on same page.</li>
+</ul>
+<h2>Definition of Done</h2>
+<ul>
+<li>FAQ component merged.</li>
+<li>20 target pages published with FAQ blocks.</li>
+<li>All 20 pass Rich Results Test.</li>
+</ul>
+<hr />
+<h1>Ticket SEO-104 — Improve LCP on Photo Gallery Pages</h1>
+<p><strong>Type:</strong> Performance<br />
+<strong>Priority:</strong> P0<br />
+<strong>Story Points:</strong> 8<br />
+<strong>Assignee:</strong> Frontend Engineer + CDN<br />
+<strong>Reporter:</strong> Director of SEO  </p>
+<h2>Problem</h2>
+<p>Photo gallery pages have LCP &gt; 4s on mobile, primarily due to unoptimized hero images and render-blocking JS. This impacts rankings and user experience.</p>
+<h2>Acceptance Criteria</h2>
+<ul>
+<li>[ ] Mobile LCP on photo gallery pages &lt; 2.0s for 75th percentile.</li>
+<li>[ ] Hero images are served in WebP/AVIF with responsive <code>srcset</code>.</li>
+<li>[ ] Non-critical JS is deferred.</li>
+<li>[ ] Preload hint added for hero image.</li>
+</ul>
+<h2>Implementation Notes</h2>
+<ul>
+<li>Use image CDN transformation URLs.</li>
+<li>Audit with Lighthouse and WebPageTest.</li>
+<li>Monitor CrUX data after release.</li>
+</ul>
+<h2>Definition of Done</h2>
+<ul>
+<li>LCP target met in Lighthouse for 10 sample pages.</li>
+<li>No visual regression on desktop/mobile.</li>
+<li>CrUX regression alert does not fire.</li>
+</ul>
+<hr />
+<h1>Ticket SEO-105 — Add BreadcrumbList Schema to Category Pages</h1>
+<p><strong>Type:</strong> Feature<br />
+<strong>Priority:</strong> P1<br />
+<strong>Story Points:</strong> 3<br />
+<strong>Assignee:</strong> Frontend Engineer<br />
+<strong>Reporter:</strong> Director of SEO  </p>
+<h2>Problem</h2>
+<p>Category pages lack breadcrumb structured data, missing a rich result opportunity and reducing contextual clarity for crawlers.</p>
+<h2>Acceptance Criteria</h2>
+<ul>
+<li>[ ] <code>BreadcrumbList</code> schema is rendered on all category pages.</li>
+<li>[ ] Visible breadcrumb navigation matches schema.</li>
+<li>[ ] Schema includes <code>Home</code>, <code>Category root</code>, and current category.</li>
+</ul>
+<h2>Implementation Notes</h2>
+<ul>
+<li>Reuse existing breadcrumb UI if present.</li>
+<li>Build <code>BreadcrumbSchema</code> component from page context.</li>
+</ul>
+<h2>Definition of Done</h2>
+<ul>
+<li>Deployed to all category pages.</li>
+<li>Rich Results Test passes for sample.</li>
+<li>Breadcrumb errors in GSC = 0.</li>
+</ul>
+<hr />
+<h1>Ticket SEO-106 — Build Internal Link Module for Related Professionals</h1>
+<p><strong>Type:</strong> Feature<br />
+<strong>Priority:</strong> P1<br />
+<strong>Story Points:</strong> 5<br />
+<strong>Assignee:</strong> Backend Engineer + Data<br />
+<strong>Reporter:</strong> Director of SEO  </p>
+<h2>Problem</h2>
+<p>Professional directory profile pages are orphans or have weak internal linking, hurting crawlability and ranking for local service queries.</p>
+<h2>Acceptance Criteria</h2>
+<ul>
+<li>[ ] Every professional profile page links to 3–6 related professionals.</li>
+<li>[ ] Related professionals are selected by service type + location proximity.</li>
+<li>[ ] Module is server-rendered.</li>
+<li>[ ] Links use descriptive anchor text.</li>
+</ul>
+<h2>Implementation Notes</h2>
+<ul>
+<li>Query related professionals by <code>service_type</code> and <code>city_id</code>.</li>
+<li>Exclude profiles with noindex or low review count.</li>
+</ul>
+<h2>Definition of Done</h2>
+<ul>
+<li>Module live on all profile pages.</li>
+<li>Orphan page count reduced by 20% in crawl.</li>
+<li>No broken internal links introduced.</li>
+</ul>
+<hr />
+<h1>Ticket SEO-107 — Create XML Sitemap for Forum Threads</h1>
+<p><strong>Type:</strong> Feature<br />
+<strong>Priority:</strong> P1<br />
+<strong>Story Points:</strong> 5<br />
+<strong>Assignee:</strong> Backend Engineer<br />
+<strong>Reporter:</strong> Director of SEO  </p>
+<h2>Problem</h2>
+<p>Forum threads are under-indexed because they are not included in any XML sitemap, relying only on internal links for discovery.</p>
+<h2>Acceptance Criteria</h2>
+<ul>
+<li>[ ] A dedicated <code>sitemap-forums.xml</code> is generated daily.</li>
+<li>[ ] Only canonical, indexable, non-thin threads are included.</li>
+<li>[ ] Sitemap is referenced from the sitemap index.</li>
+<li>[ ] URLs include <code>lastmod</code> from thread <code>updated_at</code>.</li>
+</ul>
+<h2>Implementation Notes</h2>
+<ul>
+<li>Add forum sitemap generation to existing sitemap job.</li>
+<li>Filter threads by word count and noindex flag.</li>
+</ul>
+<h2>Definition of Done</h2>
+<ul>
+<li>Sitemap submitted to GSC.</li>
+<li>Coverage report shows submitted URLs within 7 days.</li>
+<li>No increase in 5xx errors.</li>
+</ul>
+<hr />
+<h1>Ticket SEO-108 — Fix Redirect Chains Over 2 Hops</h1>
+<p><strong>Type:</strong> Bug<br />
+<strong>Priority:</strong> P1<br />
+<strong>Story Points:</strong> 3<br />
+<strong>Assignee:</strong> Backend Engineer<br />
+<strong>Reporter:</strong> Director of SEO  </p>
+<h2>Problem</h2>
+<p>Crawl data shows 31,400 URLs with redirect chains longer than 2 hops, wasting crawl budget and diluting ranking signals.</p>
+<h2>Acceptance Criteria</h2>
+<ul>
+<li>[ ] All redirect chains reduced to ≤ 2 hops.</li>
+<li>[ ] Target is single redirect for 95% of affected URLs.</li>
+<li>[ ] Internal links updated to point to final URLs.</li>
+</ul>
+<h2>Implementation Notes</h2>
+<ul>
+<li>Export redirect chain report from crawl data.</li>
+<li>Update redirect rules in CDN / app layer.</li>
+<li>Fix source internal links in bulk.</li>
+</ul>
+<h2>Definition of Done</h2>
+<ul>
+<li>Re-crawl confirms &lt; 1% of URLs have chains &gt; 2 hops.</li>
+<li>No 404s created by redirect changes.</li>
+</ul>
+<hr />
+<h1>Ticket SEO-109 — Add Noindex Flag for Thin Forum Threads</h1>
+<p><strong>Type:</strong> Feature<br />
+<strong>Priority:</strong> P1<br />
+<strong>Story Points:</strong> 3<br />
+<strong>Assignee:</strong> Backend Engineer<br />
+<strong>Reporter:</strong> Director of SEO  </p>
+<h2>Problem</h2>
+<p>Low-quality forum threads with &lt; 100 words of useful content dilute the site's topical authority and consume crawl budget.</p>
+<h2>Acceptance Criteria</h2>
+<ul>
+<li>[ ] Threads with &lt; 100 words of useful content receive <code>noindex</code>.</li>
+<li>[ ] Rule applies only to threads older than 90 days.</li>
+<li>[ ] Noindex flag is reversible via moderator action.</li>
+<li>[ ] 80,000 thin threads are noindexed in this sprint.</li>
+</ul>
+<h2>Implementation Notes</h2>
+<ul>
+<li>Compute useful word count excluding signatures and quoted text.</li>
+<li>Add <code>noindex</code> flag in thread meta template.</li>
+</ul>
+<h2>Definition of Done</h2>
+<ul>
+<li>80K thin threads noindexed.</li>
+<li>GSC coverage report confirms reduction in indexed thin content.</li>
+<li>No high-value threads accidentally noindexed.</li>
+</ul>
+<hr />
+<h1>Ticket SEO-110 — Roll Out ImageObject Schema on Photo Detail Pages</h1>
+<p><strong>Type:</strong> Feature<br />
+<strong>Priority:</strong> P2<br />
+<strong>Story Points:</strong> 5<br />
+<strong>Assignee:</strong> Frontend Engineer<br />
+<strong>Reporter:</strong> Director of SEO  </p>
+<h2>Problem</h2>
+<p>Photo detail pages lack image structured data, reducing visibility in Google Images and visual search engines.</p>
+<h2>Acceptance Criteria</h2>
+<ul>
+<li>[ ] <code>ImageObject</code> schema on every photo detail page.</li>
+<li>[ ] Fields: <code>contentUrl</code>, <code>name</code>, <code>description</code>, <code>author</code>, <code>datePublished</code>, <code>license</code>, <code>keywords</code>.</li>
+<li>[ ] <code>ImageGallery</code> schema on collection pages.</li>
+<li>[ ] Image sitemap updated to include photo pages.</li>
+</ul>
+<h2>Implementation Notes</h2>
+<ul>
+<li>Use existing photo metadata for schema fields.</li>
+<li>Build reusable <code>ImageObjectSchema</code> component.</li>
+</ul>
+<h2>Definition of Done</h2>
+<ul>
+<li>Photo pages pass Rich Results Test sample.</li>
+<li>Image sitemap includes photo URLs.</li>
+<li>No CWV regression.</li>
+</ul>
+<hr />
+<h1>Ticket SEO-111 — Implement Hreflang Self-Referencing on All Market Domains</h1>
+<p><strong>Type:</strong> Feature<br />
+<strong>Priority:</strong> P2<br />
+<strong>Story Points:</strong> 8<br />
+<strong>Assignee:</strong> Backend Engineer + International PM<br />
+<strong>Reporter:</strong> Director of SEO  </p>
+<h2>Problem</h2>
+<p>Non-US market pages are missing hreflang annotations, causing Google to serve wrong regional versions and suppressing international organic traffic.</p>
+<h2>Acceptance Criteria</h2>
+<ul>
+<li>[ ] Every canonical page includes self-referencing hreflang.</li>
+<li>[ ] Equivalent pages across 14 domains are cross-linked via hreflang.</li>
+<li>[ ] <code>x-default</code> points to <code>example.com</code> version.</li>
+<li>[ ] Hreflang is included in both <code>&lt;head&gt;</code> and XML sitemaps.</li>
+<li>[ ] No return-tag errors in next crawl.</li>
+</ul>
+<h2>Implementation Notes</h2>
+<ul>
+<li>Add <code>page_uuid</code> to link equivalents across markets.</li>
+<li>Build hreflang generation service.</li>
+<li>Coordinate release across all 14 domains.</li>
+</ul>
+<h2>Definition of Done</h2>
+<ul>
+<li>Deployed to all domains.</li>
+<li>Hreflang error count in GSC = 0.</li>
+<li>No ranking cannibalization observed.</li>
+</ul>
+<hr />
+<h1>Ticket SEO-112 — Build SEO Health Check Dashboard Endpoint</h1>
+<p><strong>Type:</strong> Feature<br />
+<strong>Priority:</strong> P2<br />
+<strong>Story Points:</strong> 5<br />
+<strong>Assignee:</strong> Backend Engineer<br />
+<strong>Reporter:</strong> Director of SEO  </p>
+<h2>Problem</h2>
+<p>SEO issues are discovered reactively via periodic crawls. We need a real-time health dashboard to catch regressions immediately after deploys.</p>
+<h2>Acceptance Criteria</h2>
+<ul>
+<li>[ ] New internal endpoint returns JSON with daily counts for:</li>
+<li>canonical errors</li>
+<li>noindexable pages</li>
+<li>pages missing schema</li>
+<li>5xx/4xx errors</li>
+<li>orphan pages</li>
+<li>[ ] Endpoint is queryable by domain and page type.</li>
+<li>[ ] Dashboard is accessible to SEO, Product, and Engineering.</li>
+</ul>
+<h2>Implementation Notes</h2>
+<ul>
+<li>Read from existing crawl + log data.</li>
+<li>Build lightweight aggregation query.</li>
+<li>Add basic alerting threshold.</li>
+</ul>
+<h2>Definition of Done</h2>
+<ul>
+<li>Endpoint live and documented.</li>
+<li>Dashboard accessible.</li>
+<li>Alerts trigger on canonical error spike.</li>
+</ul>
+<hr />
+<p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    <footer>
+      <p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    </footer>
+  </div>
+</body>
+</html>
