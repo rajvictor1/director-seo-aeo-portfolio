@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical SEO Audit Dashboard — 1M+ URL Marketplace</title>
+  <style>
+:root {
+  --bg: #0a0a0f;
+  --card: #111118;
+  --text: #e8e8ed;
+  --muted: #9090a0;
+  --accent: #7c5cff;
+  --accent-2: #00d4aa;
+  --border: #1f1f2e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+nav a.home {
+  color: var(--accent-2);
+  text-decoration: none;
+  font-weight: 600;
+}
+nav .links a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+nav .links a:hover {
+  color: var(--accent);
+}
+h1 { font-size: 2rem; margin: 0 0 16px; }
+h2 { font-size: 1.4rem; margin: 36px 0 16px; color: var(--accent-2); }
+h3 { font-size: 1.15rem; margin: 28px 0 12px; }
+p { margin: 12px 0; color: var(--muted); }
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.stat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 12px;
+  text-align: left;
+}
+th { background: var(--card); color: var(--accent); }
+tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+.badge-high { color: #ff6b6b; font-weight: 600; }
+.badge-medium { color: #ffd166; font-weight: 600; }
+.badge-low { color: var(--accent-2); font-weight: 600; }
+footer {
+  text-align: center;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+footer a { color: var(--accent-2); text-decoration: none; }
+@media (max-width: 700px) {
+  nav { flex-direction: column; gap: 12px; align-items: flex-start; }
+  nav .links a { margin-left: 0; margin-right: 16px; }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a class="home" href="../index.html">← Portfolio</a>
+      <div class="links">
+        <a href="index.html">Overview</a>
+        <a href="architecture-recommendations.html">Architecture</a>
+        <a href="results/audit_results.json">JSON Data</a>
+        <a href="results/sample_crawl.csv">Sample CSV</a>
+      </div>
+    </nav>
+    <h1>Multi-Million URL Technical SEO Audit</h1>
+    <p>Simulated audit of a global marketplace with 14 regional domains and ~1.05M URLs. Prioritized by estimated traffic impact divided by engineering effort.</p>
+    
+<div class="stats">
+  <div class="stat"><div class="stat-value">1,050,000</div><div class="stat-label">Total URLs Crawled</div></div>
+  <div class="stat"><div class="stat-value">14</div><div class="stat-label">Regional Domains</div></div>
+  <div class="stat"><div class="stat-value">7</div><div class="stat-label">Page Types</div></div>
+  <div class="stat"><div class="stat-value">10</div><div class="stat-label">Issue Categories</div></div>
+</div>
+
+    
+<h2>Prioritized Issue Backlog (by ROI)</h2>
+<table>
+  <tr>
+    <th>Issue</th><th>Count</th><th>% of Site</th><th>Severity</th><th>Est. Traffic Impact</th><th>Effort (hrs)</th><th>ROI Score</th>
+  </tr>
+  
+    <tr>
+      <td>Hreflang Missing</td>
+      <td>547,606</td>
+      <td>52.15%</td>
+      <td><span class="badge-high">High</span></td>
+      <td>$20,809,028,000</td>
+      <td>160</td>
+      <td>130,056,425</td>
+    </tr>
+    
+    <tr>
+      <td>Noindex</td>
+      <td>31,885</td>
+      <td>3.04%</td>
+      <td><span class="badge-high">High</span></td>
+      <td>$1,913,100,000</td>
+      <td>40</td>
+      <td>47,827,500</td>
+    </tr>
+    
+    <tr>
+      <td>Duplicate Title</td>
+      <td>126,155</td>
+      <td>12.01%</td>
+      <td><span class="badge-medium">Medium</span></td>
+      <td>$2,775,410,000</td>
+      <td>80</td>
+      <td>34,692,625</td>
+    </tr>
+    
+    <tr>
+      <td>Orphan</td>
+      <td>84,063</td>
+      <td>8.01%</td>
+      <td><span class="badge-high">High</span></td>
+      <td>$3,782,835,000</td>
+      <td>120</td>
+      <td>31,523,625</td>
+    </tr>
+    
+    <tr>
+      <td>Missing Meta Description</td>
+      <td>188,632</td>
+      <td>17.96%</td>
+      <td><span class="badge-low">Low</span></td>
+      <td>$1,509,056,000</td>
+      <td>60</td>
+      <td>25,150,933</td>
+    </tr>
+    
+    <tr>
+      <td>Slow Lcp</td>
+      <td>268,925</td>
+      <td>25.61%</td>
+      <td><span class="badge-medium">Medium</span></td>
+      <td>$4,033,875,000</td>
+      <td>200</td>
+      <td>20,169,375</td>
+    </tr>
+    
+    <tr>
+      <td>Faceted Duplicate</td>
+      <td>99,634</td>
+      <td>9.49%</td>
+      <td><span class="badge-medium">Medium</span></td>
+      <td>$1,793,412,000</td>
+      <td>100</td>
+      <td>17,934,120</td>
+    </tr>
+    
+    <tr>
+      <td>Broken Internal Link</td>
+      <td>42,257</td>
+      <td>4.02%</td>
+      <td><span class="badge-high">High</span></td>
+      <td>$1,056,425,000</td>
+      <td>80</td>
+      <td>13,205,312</td>
+    </tr>
+    
+    <tr>
+      <td>Non Canonical Self</td>
+      <td>52,380</td>
+      <td>4.99%</td>
+      <td><span class="badge-medium">Medium</span></td>
+      <td>$733,320,000</td>
+      <td>70</td>
+      <td>10,476,000</td>
+    </tr>
+    
+    <tr>
+      <td>Redirect Chain</td>
+      <td>31,449</td>
+      <td>3.00%</td>
+      <td><span class="badge-low">Low</span></td>
+      <td>$157,245,000</td>
+      <td>60</td>
+      <td>2,620,750</td>
+    </tr>
+    
+</table>
+
+    
+<h2>Issues by Domain</h2>
+<table>
+  <tr><th>Domain</th><th>Total Issues</th><th>Top Issue</th><th>Top Issue Count</th></tr>
+  
+    <tr>
+      <td>example.com</td>
+      <td>76,872</td>
+      <td>Slow Lcp</td>
+      <td>19,193</td>
+    </tr>
+    
+    <tr>
+      <td>example.co.uk</td>
+      <td>107,592</td>
+      <td>Hreflang Missing</td>
+      <td>41,280</td>
+    </tr>
+    
+    <tr>
+      <td>example.de</td>
+      <td>107,100</td>
+      <td>Hreflang Missing</td>
+      <td>41,274</td>
+    </tr>
+    
+    <tr>
+      <td>example.com.au</td>
+      <td>107,523</td>
+      <td>Hreflang Missing</td>
+      <td>41,362</td>
+    </tr>
+    
+    <tr>
+      <td>example.ca</td>
+      <td>107,843</td>
+      <td>Hreflang Missing</td>
+      <td>41,378</td>
+    </tr>
+    
+    <tr>
+      <td>example.es</td>
+      <td>107,354</td>
+      <td>Hreflang Missing</td>
+      <td>41,320</td>
+    </tr>
+    
+    <tr>
+      <td>example.it</td>
+      <td>106,952</td>
+      <td>Hreflang Missing</td>
+      <td>41,082</td>
+    </tr>
+    
+    <tr>
+      <td>example.jp</td>
+      <td>107,272</td>
+      <td>Hreflang Missing</td>
+      <td>41,264</td>
+    </tr>
+    
+    <tr>
+      <td>example.in</td>
+      <td>107,282</td>
+      <td>Hreflang Missing</td>
+      <td>41,063</td>
+    </tr>
+    
+    <tr>
+      <td>example.mx</td>
+      <td>107,755</td>
+      <td>Hreflang Missing</td>
+      <td>41,464</td>
+    </tr>
+    
+    <tr>
+      <td>example.br</td>
+      <td>107,105</td>
+      <td>Hreflang Missing</td>
+      <td>41,260</td>
+    </tr>
+    
+    <tr>
+      <td>example.nl</td>
+      <td>107,831</td>
+      <td>Hreflang Missing</td>
+      <td>41,181</td>
+    </tr>
+    
+    <tr>
+      <td>example.fr</td>
+      <td>106,957</td>
+      <td>Hreflang Missing</td>
+      <td>41,123</td>
+    </tr>
+    
+    <tr>
+      <td>example.sg</td>
+      <td>107,548</td>
+      <td>Hreflang Missing</td>
+      <td>41,390</td>
+    </tr>
+    
+</table>
+
+    
+<h2>Issues by Page Type</h2>
+<table>
+  <tr><th>Page Type</th><th>Total Issues</th><th>Top Issue</th><th>Top Issue Count</th></tr>
+  
+    <tr>
+      <td>Photo</td>
+      <td>306,661</td>
+      <td>Hreflang Missing</td>
+      <td>109,494</td>
+    </tr>
+    
+    <tr>
+      <td>Product</td>
+      <td>628,166</td>
+      <td>Hreflang Missing</td>
+      <td>246,265</td>
+    </tr>
+    
+    <tr>
+      <td>Category</td>
+      <td>206,188</td>
+      <td>Hreflang Missing</td>
+      <td>66,089</td>
+    </tr>
+    
+    <tr>
+      <td>Home</td>
+      <td>1,284</td>
+      <td>Hreflang Missing</td>
+      <td>506</td>
+    </tr>
+    
+    <tr>
+      <td>Editorial</td>
+      <td>122,071</td>
+      <td>Hreflang Missing</td>
+      <td>43,724</td>
+    </tr>
+    
+    <tr>
+      <td>Forum</td>
+      <td>140,645</td>
+      <td>Hreflang Missing</td>
+      <td>54,855</td>
+    </tr>
+    
+    <tr>
+      <td>Directory</td>
+      <td>67,971</td>
+      <td>Hreflang Missing</td>
+      <td>26,673</td>
+    </tr>
+    
+</table>
+
+    <footer>
+      <p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    </footer>
+  </div>
+</body>
+</html>

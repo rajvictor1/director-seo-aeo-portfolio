@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forecast Model — Hevo Data AEO/GEO Playbook</title>
+  <style>
+:root {
+  --bg: #0a0a0f;
+  --card: #111118;
+  --text: #e8e8ed;
+  --muted: #9090a0;
+  --accent: #7c5cff;
+  --accent-2: #00d4aa;
+  --border: #1f1f2e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+nav a.home {
+  color: var(--accent-2);
+  text-decoration: none;
+  font-weight: 600;
+}
+nav .links a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+nav .links a:hover, nav .links a.active {
+  color: var(--accent);
+}
+h1 { font-size: 2rem; margin: 0 0 24px; }
+h2 { font-size: 1.4rem; margin: 36px 0 16px; color: var(--accent-2); }
+h3 { font-size: 1.15rem; margin: 28px 0 12px; }
+p { margin: 12px 0; }
+a { color: var(--accent-2); }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 12px;
+  text-align: left;
+}
+th { background: var(--card); color: var(--accent); }
+tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+code {
+  background: var(--card);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', Monaco, monospace;
+}
+pre {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}
+footer {
+  text-align: center;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+footer a { color: var(--accent-2); text-decoration: none; }
+@media (max-width: 600px) {
+  nav { flex-direction: column; gap: 12px; align-items: flex-start; }
+  nav .links a { margin-left: 0; margin-right: 16px; }
+  h1 { font-size: 1.5rem; }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a class="home" href="../index.html">← Portfolio</a>
+      <div class="links"><a href="index.html" class="">Overview</a><a href="aeo-content-map.html" class="">AEO Content Map</a><a href="forecast-model.html" class="active">Forecast Model</a><a href="schema-brief.html" class="">Schema Brief</a><a href="llms.html" class="">llms.txt</a></div>
+    </nav>
+    <h1>90-Day Forecast Model — Hevo Data AEO/GEO Program</h1>
+<h2>Assumptions</h2>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Value</th>
+<th>Source / Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Current monthly organic visits to comparison/integration pages</td>
+<td>12,000</td>
+<td>Estimate from mid-market B2B SaaS benchmark</td>
+</tr>
+<tr>
+<td>AI-search share of total organic queries in category</td>
+<td>18%</td>
+<td>2024 B2B software search estimate</td>
+</tr>
+<tr>
+<td>Target pages to launch</td>
+<td>25</td>
+<td>5 comparison + 10 integration + 10 programmatic solution</td>
+</tr>
+<tr>
+<td>Average monthly organic sessions per page (mature)</td>
+<td>400</td>
+<td>Conservative benchmark for long-tail B2B SaaS pages</td>
+</tr>
+<tr>
+<td>Page ramp to 80% maturity</td>
+<td>90 days</td>
+<td>SEO/AEO content ramp</td>
+</tr>
+<tr>
+<td>Conversion rate organic → demo signup</td>
+<td>2.5%</td>
+<td>B2B SaaS benchmark</td>
+</tr>
+<tr>
+<td>Demo-to-SQL conversion rate</td>
+<td>15%</td>
+<td>Mid-market SaaS average</td>
+</tr>
+<tr>
+<td>Average ACV</td>
+<td>$15,000</td>
+<td>Hevo paid plans estimate</td>
+</tr>
+</tbody>
+</table>
+<h2>Forecast</h2>
+<h3>Traffic</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Baseline</th>
+<th>Day 90</th>
+<th>Day 180</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Target page count</td>
+<td>15</td>
+<td>40</td>
+<td>40</td>
+</tr>
+<tr>
+<td>Monthly organic sessions (target pages)</td>
+<td>12,000</td>
+<td>22,000</td>
+<td>32,000</td>
+</tr>
+<tr>
+<td>AI-attributed organic sessions</td>
+<td>2,160</td>
+<td>5,500</td>
+<td>9,600</td>
+</tr>
+<tr>
+<td>Total organic sessions (full site)</td>
+<td>85,000</td>
+<td>102,000</td>
+<td>120,000</td>
+</tr>
+</tbody>
+</table>
+<h3>Citation Share</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Baseline</th>
+<th>Day 90</th>
+<th>Day 180</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Target query set size</td>
+<td>50</td>
+<td>100</td>
+<td>150</td>
+</tr>
+<tr>
+<td>Hevo citation rate</td>
+<td>12%</td>
+<td>28%</td>
+<td>42%</td>
+</tr>
+<tr>
+<td>Competitor citation rate (avg)</td>
+<td>45%</td>
+<td>38%</td>
+<td>32%</td>
+</tr>
+<tr>
+<td>Cited URL count</td>
+<td>6</td>
+<td>28</td>
+<td>63</td>
+</tr>
+</tbody>
+</table>
+<h3>Pipeline Impact</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Day 90</th>
+<th>Day 180</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI-attributed sessions</td>
+<td>5,500</td>
+<td>9,600</td>
+</tr>
+<tr>
+<td>Demo signups (2.5% CVR)</td>
+<td>138</td>
+<td>240</td>
+</tr>
+<tr>
+<td>SQLs (15%)</td>
+<td>21</td>
+<td>36</td>
+</tr>
+<tr>
+<td>New ACV (at 20% close)</td>
+<td>$63,000</td>
+<td>$108,000</td>
+</tr>
+<tr>
+<td>Annualized ACV impact</td>
+<td>$252,000</td>
+<td>$432,000</td>
+</tr>
+</tbody>
+</table>
+<h2>Sensitivity Analysis</h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>-20%</th>
+<th>Base</th>
+<th>+20%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sessions per page</td>
+<td>$202K</td>
+<td>$252K</td>
+<td>$302K</td>
+</tr>
+<tr>
+<td>Conversion rate</td>
+<td>$202K</td>
+<td>$252K</td>
+<td>$302K</td>
+</tr>
+<tr>
+<td>ACV</td>
+<td>$202K</td>
+<td>$252K</td>
+<td>$302K</td>
+</tr>
+</tbody>
+</table>
+<h2>KPI Dashboard</h2>
+<p>Track weekly in a shared Google Sheet or BI dashboard:
+- AI answer citations
+- Target page organic sessions
+- Indexed page count
+- Schema validity score
+- Demo signups from organic search
+- Branded search impression trend</p>
+<h2>Notes</h2>
+<ul>
+<li>This forecast is directional, not a guarantee.</li>
+<li>AI-search measurement is still evolving; manual probe sampling should be used until reliable APIs exist.</li>
+<li>Assumes no major algorithm or competitive disruption during the forecast window.</li>
+</ul>
+    <footer>
+      <p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    </footer>
+  </div>
+</body>
+</html>

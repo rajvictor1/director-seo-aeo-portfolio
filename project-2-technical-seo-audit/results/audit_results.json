@@ -1,0 +1,363 @@
+{
+  "total_urls": 1050000,
+  "issue_counts": {
+    "orphan": 84063,
+    "redirect_chain": 31449,
+    "hreflang_missing": 547606,
+    "broken_internal_link": 42257,
+    "missing_meta_description": 188632,
+    "non_canonical_self": 52380,
+    "slow_lcp": 268925,
+    "duplicate_title": 126155,
+    "noindex": 31885,
+    "faceted_duplicate": 99634
+  },
+  "issue_by_type": {
+    "photo": {
+      "orphan": 16947,
+      "redirect_chain": 6209,
+      "non_canonical_self": 10309,
+      "missing_meta_description": 37910,
+      "hreflang_missing": 109494,
+      "duplicate_title": 25106,
+      "slow_lcp": 73514,
+      "broken_internal_link": 8403,
+      "faceted_duplicate": 12438,
+      "noindex": 6331
+    },
+    "product": {
+      "orphan": 37616,
+      "hreflang_missing": 246265,
+      "broken_internal_link": 19109,
+      "missing_meta_description": 84523,
+      "slow_lcp": 103553,
+      "non_canonical_self": 23630,
+      "faceted_duplicate": 28296,
+      "redirect_chain": 14215,
+      "noindex": 14208,
+      "duplicate_title": 56751
+    },
+    "category": {
+      "hreflang_missing": 66089,
+      "duplicate_title": 15304,
+      "redirect_chain": 3788,
+      "missing_meta_description": 22963,
+      "non_canonical_self": 6375,
+      "faceted_duplicate": 44555,
+      "slow_lcp": 28086,
+      "orphan": 10108,
+      "broken_internal_link": 5040,
+      "noindex": 3880
+    },
+    "home": {
+      "noindex": 25,
+      "faceted_duplicate": 46,
+      "missing_meta_description": 168,
+      "hreflang_missing": 506,
+      "orphan": 106,
+      "slow_lcp": 233,
+      "duplicate_title": 98,
+      "non_canonical_self": 39,
+      "redirect_chain": 29,
+      "broken_internal_link": 34
+    },
+    "editorial": {
+      "hreflang_missing": 43724,
+      "slow_lcp": 29121,
+      "duplicate_title": 9965,
+      "faceted_duplicate": 5035,
+      "missing_meta_description": 14830,
+      "redirect_chain": 2522,
+      "orphan": 6787,
+      "noindex": 2508,
+      "non_canonical_self": 4226,
+      "broken_internal_link": 3353
+    },
+    "forum": {
+      "missing_meta_description": 19099,
+      "hreflang_missing": 54855,
+      "slow_lcp": 23041,
+      "non_canonical_self": 5390,
+      "duplicate_title": 12813,
+      "orphan": 8417,
+      "faceted_duplicate": 6290,
+      "broken_internal_link": 4279,
+      "noindex": 3327,
+      "redirect_chain": 3134
+    },
+    "directory": {
+      "slow_lcp": 11377,
+      "duplicate_title": 6118,
+      "hreflang_missing": 26673,
+      "missing_meta_description": 9139,
+      "faceted_duplicate": 2974,
+      "noindex": 1606,
+      "orphan": 4082,
+      "non_canonical_self": 2411,
+      "redirect_chain": 1552,
+      "broken_internal_link": 2039
+    }
+  },
+  "issue_by_domain": {
+    "example.com": {
+      "orphan": 5925,
+      "redirect_chain": 2248,
+      "duplicate_title": 8991,
+      "missing_meta_description": 13504,
+      "non_canonical_self": 3666,
+      "hreflang_missing": 11165,
+      "slow_lcp": 19193,
+      "faceted_duplicate": 7069,
+      "broken_internal_link": 2880,
+      "noindex": 2231
+    },
+    "example.co.uk": {
+      "orphan": 5981,
+      "hreflang_missing": 41280,
+      "broken_internal_link": 2992,
+      "slow_lcp": 19361,
+      "missing_meta_description": 13617,
+      "duplicate_title": 8948,
+      "faceted_duplicate": 7150,
+      "non_canonical_self": 3751,
+      "noindex": 2308,
+      "redirect_chain": 2204
+    },
+    "example.de": {
+      "missing_meta_description": 13317,
+      "hreflang_missing": 41274,
+      "slow_lcp": 19109,
+      "faceted_duplicate": 7104,
+      "non_canonical_self": 3780,
+      "orphan": 6076,
+      "duplicate_title": 8932,
+      "broken_internal_link": 2995,
+      "noindex": 2190,
+      "redirect_chain": 2323
+    },
+    "example.com.au": {
+      "hreflang_missing": 41362,
+      "slow_lcp": 19076,
+      "faceted_duplicate": 7142,
+      "redirect_chain": 2290,
+      "noindex": 2272,
+      "duplicate_title": 9110,
+      "missing_meta_description": 13419,
+      "orphan": 6116,
+      "broken_internal_link": 3041,
+      "non_canonical_self": 3695
+    },
+    "example.ca": {
+      "non_canonical_self": 3759,
+      "slow_lcp": 19159,
+      "hreflang_missing": 41378,
+      "orphan": 6011,
+      "faceted_duplicate": 7130,
+      "missing_meta_description": 13657,
+      "duplicate_title": 9108,
+      "broken_internal_link": 3095,
+      "redirect_chain": 2249,
+      "noindex": 2297
+    },
+    "example.es": {
+      "hreflang_missing": 41320,
+      "orphan": 5961,
+      "missing_meta_description": 13591,
+      "slow_lcp": 19069,
+      "faceted_duplicate": 7106,
+      "duplicate_title": 9010,
+      "non_canonical_self": 3652,
+      "broken_internal_link": 2970,
+      "noindex": 2354,
+      "redirect_chain": 2321
+    },
+    "example.it": {
+      "hreflang_missing": 41082,
+      "slow_lcp": 19162,
+      "non_canonical_self": 3734,
+      "noindex": 2288,
+      "missing_meta_description": 13394,
+      "orphan": 6140,
+      "faceted_duplicate": 7049,
+      "duplicate_title": 8852,
+      "broken_internal_link": 3095,
+      "redirect_chain": 2156
+    },
+    "example.jp": {
+      "duplicate_title": 9121,
+      "redirect_chain": 2224,
+      "hreflang_missing": 41264,
+      "slow_lcp": 19254,
+      "missing_meta_description": 13258,
+      "non_canonical_self": 3699,
+      "broken_internal_link": 3059,
+      "orphan": 5934,
+      "faceted_duplicate": 7174,
+      "noindex": 2285
+    },
+    "example.in": {
+      "missing_meta_description": 13419,
+      "hreflang_missing": 41063,
+      "non_canonical_self": 3834,
+      "orphan": 5989,
+      "duplicate_title": 9093,
+      "slow_lcp": 19234,
+      "noindex": 2272,
+      "faceted_duplicate": 7171,
+      "broken_internal_link": 2987,
+      "redirect_chain": 2220
+    },
+    "example.mx": {
+      "slow_lcp": 19197,
+      "missing_meta_description": 13333,
+      "hreflang_missing": 41464,
+      "noindex": 2328,
+      "faceted_duplicate": 7199,
+      "duplicate_title": 9078,
+      "broken_internal_link": 3069,
+      "orphan": 6077,
+      "redirect_chain": 2228,
+      "non_canonical_self": 3782
+    },
+    "example.br": {
+      "noindex": 2286,
+      "faceted_duplicate": 6999,
+      "slow_lcp": 19243,
+      "redirect_chain": 2253,
+      "duplicate_title": 8891,
+      "hreflang_missing": 41260,
+      "missing_meta_description": 13615,
+      "non_canonical_self": 3669,
+      "broken_internal_link": 2938,
+      "orphan": 5951
+    },
+    "example.nl": {
+      "orphan": 6027,
+      "missing_meta_description": 13661,
+      "hreflang_missing": 41181,
+      "slow_lcp": 19467,
+      "duplicate_title": 9033,
+      "broken_internal_link": 3024,
+      "non_canonical_self": 3781,
+      "redirect_chain": 2251,
+      "faceted_duplicate": 7156,
+      "noindex": 2250
+    },
+    "example.fr": {
+      "faceted_duplicate": 7029,
+      "slow_lcp": 19332,
+      "duplicate_title": 8967,
+      "hreflang_missing": 41123,
+      "orphan": 5936,
+      "broken_internal_link": 3066,
+      "missing_meta_description": 13240,
+      "noindex": 2322,
+      "non_canonical_self": 3750,
+      "redirect_chain": 2192
+    },
+    "example.sg": {
+      "hreflang_missing": 41390,
+      "missing_meta_description": 13607,
+      "slow_lcp": 19069,
+      "duplicate_title": 9021,
+      "redirect_chain": 2290,
+      "faceted_duplicate": 7156,
+      "orphan": 5939,
+      "broken_internal_link": 3046,
+      "noindex": 2202,
+      "non_canonical_self": 3828
+    }
+  },
+  "priority": [
+    {
+      "issue": "hreflang_missing",
+      "count": 547606,
+      "pct": 52.15,
+      "severity": "High",
+      "impact": 20809028000,
+      "effort_hours": 160,
+      "roi_score": 130056425.0
+    },
+    {
+      "issue": "noindex",
+      "count": 31885,
+      "pct": 3.04,
+      "severity": "High",
+      "impact": 1913100000,
+      "effort_hours": 40,
+      "roi_score": 47827500.0
+    },
+    {
+      "issue": "duplicate_title",
+      "count": 126155,
+      "pct": 12.01,
+      "severity": "Medium",
+      "impact": 2775410000,
+      "effort_hours": 80,
+      "roi_score": 34692625.0
+    },
+    {
+      "issue": "orphan",
+      "count": 84063,
+      "pct": 8.01,
+      "severity": "High",
+      "impact": 3782835000,
+      "effort_hours": 120,
+      "roi_score": 31523625.0
+    },
+    {
+      "issue": "missing_meta_description",
+      "count": 188632,
+      "pct": 17.96,
+      "severity": "Low",
+      "impact": 1509056000,
+      "effort_hours": 60,
+      "roi_score": 25150933.33
+    },
+    {
+      "issue": "slow_lcp",
+      "count": 268925,
+      "pct": 25.61,
+      "severity": "Medium",
+      "impact": 4033875000,
+      "effort_hours": 200,
+      "roi_score": 20169375.0
+    },
+    {
+      "issue": "faceted_duplicate",
+      "count": 99634,
+      "pct": 9.49,
+      "severity": "Medium",
+      "impact": 1793412000,
+      "effort_hours": 100,
+      "roi_score": 17934120.0
+    },
+    {
+      "issue": "broken_internal_link",
+      "count": 42257,
+      "pct": 4.02,
+      "severity": "High",
+      "impact": 1056425000,
+      "effort_hours": 80,
+      "roi_score": 13205312.5
+    },
+    {
+      "issue": "non_canonical_self",
+      "count": 52380,
+      "pct": 4.99,
+      "severity": "Medium",
+      "impact": 733320000,
+      "effort_hours": 70,
+      "roi_score": 10476000.0
+    },
+    {
+      "issue": "redirect_chain",
+      "count": 31449,
+      "pct": 3.0,
+      "severity": "Low",
+      "impact": 157245000,
+      "effort_hours": 60,
+      "roi_score": 2620750.0
+    }
+  ]
+}

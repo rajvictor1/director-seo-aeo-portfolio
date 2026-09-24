@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schema Brief — Hevo Data AEO/GEO Playbook</title>
+  <style>
+:root {
+  --bg: #0a0a0f;
+  --card: #111118;
+  --text: #e8e8ed;
+  --muted: #9090a0;
+  --accent: #7c5cff;
+  --accent-2: #00d4aa;
+  --border: #1f1f2e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+nav a.home {
+  color: var(--accent-2);
+  text-decoration: none;
+  font-weight: 600;
+}
+nav .links a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+nav .links a:hover, nav .links a.active {
+  color: var(--accent);
+}
+h1 { font-size: 2rem; margin: 0 0 24px; }
+h2 { font-size: 1.4rem; margin: 36px 0 16px; color: var(--accent-2); }
+h3 { font-size: 1.15rem; margin: 28px 0 12px; }
+p { margin: 12px 0; }
+a { color: var(--accent-2); }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 12px;
+  text-align: left;
+}
+th { background: var(--card); color: var(--accent); }
+tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+code {
+  background: var(--card);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', Monaco, monospace;
+}
+pre {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}
+footer {
+  text-align: center;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+footer a { color: var(--accent-2); text-decoration: none; }
+@media (max-width: 600px) {
+  nav { flex-direction: column; gap: 12px; align-items: flex-start; }
+  nav .links a { margin-left: 0; margin-right: 16px; }
+  h1 { font-size: 1.5rem; }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a class="home" href="../index.html">← Portfolio</a>
+      <div class="links"><a href="index.html" class="">Overview</a><a href="aeo-content-map.html" class="">AEO Content Map</a><a href="forecast-model.html" class="">Forecast Model</a><a href="schema-brief.html" class="active">Schema Brief</a><a href="llms.html" class="">llms.txt</a></div>
+    </nav>
+    <h1>Schema.org Brief — Hevo Data</h1>
+<h2>Global Entities</h2>
+<h3>Organization</h3>
+<p>Apply to every page via JSON-LD in <code>&lt;head&gt;</code>.</p>
+<pre><code class="language-json">{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Hevo Data&quot;,
+  &quot;url&quot;: &quot;https://hevodata.com&quot;,
+  &quot;logo&quot;: &quot;https://hevodata.com/logo.png&quot;,
+  &quot;sameAs&quot;: [
+    &quot;https://www.linkedin.com/company/hevo-data&quot;,
+    &quot;https://www.g2.com/products/hevo-data/reviews&quot;,
+    &quot;https://www.capterra.com/p/213570/Hevo-Data/&quot;,
+    &quot;https://www.crunchbase.com/organization/hevo-data&quot;
+  ],
+  &quot;contactPoint&quot;: {
+    &quot;@type&quot;: &quot;ContactPoint&quot;,
+    &quot;contactType&quot;: &quot;sales&quot;,
+    &quot;email&quot;: &quot;sales@hevodata.com&quot;,
+    &quot;url&quot;: &quot;https://hevodata.com/schedule-demo&quot;
+  }
+}
+</code></pre>
+<h3>SoftwareApplication</h3>
+<p>Apply to homepage and product pages.</p>
+<pre><code class="language-json">{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;SoftwareApplication&quot;,
+  &quot;name&quot;: &quot;Hevo Data&quot;,
+  &quot;applicationCategory&quot;: &quot;BusinessApplication&quot;,
+  &quot;operatingSystem&quot;: &quot;Any (SaaS / Cloud)&quot;,
+  &quot;offers&quot;: {
+    &quot;@type&quot;: &quot;Offer&quot;,
+    &quot;price&quot;: &quot;0&quot;,
+    &quot;priceCurrency&quot;: &quot;USD&quot;,
+    &quot;description&quot;: &quot;Free tier up to 1 million events/month&quot;
+  },
+  &quot;aggregateRating&quot;: {
+    &quot;@type&quot;: &quot;AggregateRating&quot;,
+    &quot;ratingValue&quot;: &quot;4.4&quot;,
+    &quot;reviewCount&quot;: &quot;271&quot;,
+    &quot;bestRating&quot;: &quot;5&quot;,
+    &quot;worstRating&quot;: &quot;1&quot;
+  },
+  &quot;featureList&quot;: [
+    &quot;150+ pre-built connectors&quot;,
+    &quot;No-code pipeline builder&quot;,
+    &quot;Near real-time data sync&quot;,
+    &quot;Automatic schema drift handling&quot;,
+    &quot;dbt transformations&quot;,
+    &quot;CDC database replication&quot;,
+    &quot;SOC 2, GDPR, CCPA, HIPAA compliant&quot;
+  ],
+  &quot;softwareVersion&quot;: &quot;Cloud SaaS&quot;,
+  &quot;provider&quot;: {
+    &quot;@type&quot;: &quot;Organization&quot;,
+    &quot;name&quot;: &quot;Hevo Data&quot;
+  }
+}
+</code></pre>
+<h2>Page-Level Schema</h2>
+<h3>Comparison Pages</h3>
+<p>Use <code>WebPage</code> + <code>FAQPage</code>.</p>
+<pre><code class="language-json">{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: [&quot;WebPage&quot;, &quot;FAQPage&quot;],
+  &quot;name&quot;: &quot;Hevo vs Fivetran: Which ETL Tool is Right for You?&quot;,
+  &quot;mainEntity&quot;: [
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;Is Hevo easier to set up than Fivetran?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Hevo is designed for no-code setup and typically gets first pipeline running in under 5 minutes. Fivetran offers broader enterprise governance but often requires more configuration and engineering involvement during onboarding.&quot;
+      }
+    }
+  ]
+}
+</code></pre>
+<h3>Integration Pages</h3>
+<p>Use <code>HowTo</code> + <code>FAQPage</code>.</p>
+<pre><code class="language-json">{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;HowTo&quot;,
+  &quot;name&quot;: &quot;How to Connect Salesforce to Snowflake with Hevo&quot;,
+  &quot;description&quot;: &quot;Set up a no-code Salesforce to Snowflake pipeline in minutes.&quot;,
+  &quot;totalTime&quot;: &quot;PT10M&quot;,
+  &quot;tool&quot;: [
+    { &quot;@type&quot;: &quot;HowToTool&quot;, &quot;name&quot;: &quot;Hevo Data account&quot; },
+    { &quot;@type&quot;: &quot;HowToTool&quot;, &quot;name&quot;: &quot;Salesforce credentials&quot; },
+    { &quot;@type&quot;: &quot;HowToTool&quot;, &quot;name&quot;: &quot;Snowflake warehouse&quot; }
+  ],
+  &quot;step&quot;: [
+    {
+      &quot;@type&quot;: &quot;HowToStep&quot;,
+      &quot;name&quot;: &quot;Select Salesforce as source&quot;,
+      &quot;text&quot;: &quot;In Hevo, choose Salesforce from the source catalog and authenticate with your credentials.&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;HowToStep&quot;,
+      &quot;name&quot;: &quot;Select Snowflake as destination&quot;,
+      &quot;text&quot;: &quot;Choose Snowflake as your destination and enter your warehouse connection details.&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;HowToStep&quot;,
+      &quot;name&quot;: &quot;Map fields and activate&quot;,
+      &quot;text&quot;: &quot;Map objects, set sync frequency, and activate the pipeline.&quot;
+    }
+  ]
+}
+</code></pre>
+<h3>Case Study Pages</h3>
+<p>Use <code>CaseStudy</code> + <code>Organization</code>.</p>
+<pre><code class="language-json">{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;CaseStudy&quot;,
+  &quot;name&quot;: &quot;How ThoughtSpot Reduced Platform Costs 85% with Hevo&quot;,
+  &quot;about&quot;: {
+    &quot;@type&quot;: &quot;Organization&quot;,
+    &quot;name&quot;: &quot;ThoughtSpot&quot;
+  },
+  &quot;provider&quot;: {
+    &quot;@type&quot;: &quot;Organization&quot;,
+    &quot;name&quot;: &quot;Hevo Data&quot;
+  },
+  &quot;description&quot;: &quot;ThoughtSpot used Hevo to modernize its data operations, achieving 85% platform cost reduction and 100% uptime.&quot;
+}
+</code></pre>
+<h3>Pricing Page</h3>
+<p>Use <code>Offer</code> or <code>AggregateOffer</code>.</p>
+<pre><code class="language-json">{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;WebPage&quot;,
+  &quot;name&quot;: &quot;Hevo Data Pricing&quot;,
+  &quot;mainEntity&quot;: {
+    &quot;@type&quot;: &quot;AggregateOffer&quot;,
+    &quot;name&quot;: &quot;Hevo Data Plans&quot;,
+    &quot;offers&quot;: [
+      {
+        &quot;@type&quot;: &quot;Offer&quot;,
+        &quot;name&quot;: &quot;Free&quot;,
+        &quot;price&quot;: &quot;0&quot;,
+        &quot;priceCurrency&quot;: &quot;USD&quot;,
+        &quot;description&quot;: &quot;Up to 1 million events/month&quot;
+      },
+      {
+        &quot;@type&quot;: &quot;Offer&quot;,
+        &quot;name&quot;: &quot;Starter&quot;,
+        &quot;price&quot;: &quot;239&quot;,
+        &quot;priceCurrency&quot;: &quot;USD&quot;,
+        &quot;priceValidInterval&quot;: &quot;P1M&quot;,
+        &quot;description&quot;: &quot;Starting at $239/month for growing teams&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+<h2>Validation</h2>
+<ul>
+<li>Run every page through Google Rich Results Test or Schema Markup Validator</li>
+<li>Maintain a schema inventory in a Google Sheet or SEO platform</li>
+<li>Track invalid markup errors weekly until zero critical issues remain</li>
+</ul>
+    <footer>
+      <p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AEO Content Map — Hevo Data AEO/GEO Playbook</title>
+  <style>
+:root {
+  --bg: #0a0a0f;
+  --card: #111118;
+  --text: #e8e8ed;
+  --muted: #9090a0;
+  --accent: #7c5cff;
+  --accent-2: #00d4aa;
+  --border: #1f1f2e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+nav a.home {
+  color: var(--accent-2);
+  text-decoration: none;
+  font-weight: 600;
+}
+nav .links a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+nav .links a:hover, nav .links a.active {
+  color: var(--accent);
+}
+h1 { font-size: 2rem; margin: 0 0 24px; }
+h2 { font-size: 1.4rem; margin: 36px 0 16px; color: var(--accent-2); }
+h3 { font-size: 1.15rem; margin: 28px 0 12px; }
+p { margin: 12px 0; }
+a { color: var(--accent-2); }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 12px;
+  text-align: left;
+}
+th { background: var(--card); color: var(--accent); }
+tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+code {
+  background: var(--card);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', Monaco, monospace;
+}
+pre {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}
+footer {
+  text-align: center;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+footer a { color: var(--accent-2); text-decoration: none; }
+@media (max-width: 600px) {
+  nav { flex-direction: column; gap: 12px; align-items: flex-start; }
+  nav .links a { margin-left: 0; margin-right: 16px; }
+  h1 { font-size: 1.5rem; }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a class="home" href="../index.html">← Portfolio</a>
+      <div class="links"><a href="index.html" class="">Overview</a><a href="aeo-content-map.html" class="active">AEO Content Map</a><a href="forecast-model.html" class="">Forecast Model</a><a href="schema-brief.html" class="">Schema Brief</a><a href="llms.html" class="">llms.txt</a></div>
+    </nav>
+    <h1>AEO Content Map — Hevo Data</h1>
+<p>This file maps high-value AI-search questions to the pages Hevo should own or create.</p>
+<h2>Comparison Questions</h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Existing / Proposed Page</th>
+<th>Content Type</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hevo vs Fivetran — which is easier?</td>
+<td><code>/vs/fivetran</code></td>
+<td>Comparison + FAQ</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>Hevo vs Airbyte for no-code teams?</td>
+<td><code>/vs/airbyte</code></td>
+<td>Comparison + FAQ</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>Hevo vs Stitch for startups?</td>
+<td><code>/vs/stitch</code></td>
+<td>Comparison + FAQ</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Cheaper alternative to Fivetran</td>
+<td><code>/vs/fivetran</code> + blog</td>
+<td>Blog + comparison</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Best no-code ETL tool for Snowflake</td>
+<td><code>/best-no-code-etl-snowflake</code></td>
+<td>Guide + FAQ</td>
+<td>P0</td>
+</tr>
+</tbody>
+</table>
+<h2>Integration Questions</h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Existing / Proposed Page</th>
+<th>Content Type</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>How do I sync Salesforce to Snowflake?</td>
+<td><code>/integrations/salesforce-to-snowflake</code></td>
+<td>HowTo + FAQ</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>Load Stripe data into BigQuery</td>
+<td><code>/integrations/stripe-to-bigquery</code></td>
+<td>HowTo + FAQ</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>Connect HubSpot to Redshift</td>
+<td><code>/integrations/hubspot-to-redshift</code></td>
+<td>HowTo + FAQ</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>PostgreSQL CDC to BigQuery</td>
+<td><code>/integrations/postgresql-cdc-bigquery</code></td>
+<td>HowTo + FAQ</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Replicate MySQL to Databricks</td>
+<td><code>/integrations/mysql-to-databricks</code></td>
+<td>HowTo + FAQ</td>
+<td>P1</td>
+</tr>
+</tbody>
+</table>
+<h2>Capability Questions</h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Existing / Proposed Page</th>
+<th>Content Type</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What is reverse ETL and do I need it?</td>
+<td><code>/blog/reverse-etl-guide</code></td>
+<td>Blog + FAQ</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>How to handle schema drift in ETL</td>
+<td><code>/blog/schema-drift-etl</code></td>
+<td>Blog + FAQ</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>No-code data pipeline monitoring tools</td>
+<td><code>/no-code-pipeline-monitoring</code></td>
+<td>Solution page</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>How to replicate SaaS data to warehouse</td>
+<td><code>/blog/saas-to-warehouse-replication</code></td>
+<td>Blog + FAQ</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Best ETL tool without data engineer</td>
+<td><code>/best-etl-no-data-engineer</code></td>
+<td>Guide + FAQ</td>
+<td>P0</td>
+</tr>
+</tbody>
+</table>
+<h2>Brand / Trust Questions</h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Existing / Proposed Page</th>
+<th>Content Type</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Is Hevo Data HIPAA compliant?</td>
+<td><code>/security</code> or <code>/compliance</code></td>
+<td>Trust page</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Hevo Data pricing</td>
+<td><code>/pricing</code></td>
+<td>Pricing page</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>Hevo Data reviews</td>
+<td>G2 + <code>/reviews</code></td>
+<td>Social proof</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Hevo Data case studies</td>
+<td><code>/success-stories</code></td>
+<td>Case studies</td>
+<td>P1</td>
+</tr>
+</tbody>
+</table>
+<h2>Content Format Rules</h2>
+<p>For every page in this map, structure the content so AI models can cite it:
+1. Title and H1 match the natural question
+2. First 100 words give a direct, unambiguous answer
+3. Include a comparison table where relevant
+4. Add a real customer or G2 quote for trust
+5. Link internally to product, docs, and pricing
+6. Markup with <code>FAQPage</code>, <code>HowTo</code>, or <code>SoftwareApplication</code> schema</p>
+<h2>Update Cadence</h2>
+<p>Review and refresh this map quarterly based on:
+- New competitor launches
+- New connector releases
+- AI answer gap analysis
+- Keyword / prompt research from ChatGPT, Gemini, Claude</p>
+    <footer>
+      <p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    </footer>
+  </div>
+</body>
+</html>

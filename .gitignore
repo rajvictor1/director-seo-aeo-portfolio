@@ -12,3 +12,4 @@ dist/
 .next/
 .vercel/
 *.log
+.hermes_cache/

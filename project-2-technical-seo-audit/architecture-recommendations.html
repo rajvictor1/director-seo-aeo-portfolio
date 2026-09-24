@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture Recommendations — Technical SEO Audit Simulator</title>
+  <style>
+:root {
+  --bg: #0a0a0f;
+  --card: #111118;
+  --text: #e8e8ed;
+  --muted: #9090a0;
+  --accent: #7c5cff;
+  --accent-2: #00d4aa;
+  --border: #1f1f2e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+nav a.home {
+  color: var(--accent-2);
+  text-decoration: none;
+  font-weight: 600;
+}
+nav .links a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+nav .links a:hover, nav .links a.active {
+  color: var(--accent);
+}
+h1 { font-size: 2rem; margin: 0 0 24px; }
+h2 { font-size: 1.4rem; margin: 36px 0 16px; color: var(--accent-2); }
+h3 { font-size: 1.15rem; margin: 28px 0 12px; }
+p { margin: 12px 0; }
+a { color: var(--accent-2); }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 12px;
+  text-align: left;
+}
+th { background: var(--card); color: var(--accent); }
+tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+code {
+  background: var(--card);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', Monaco, monospace;
+}
+pre {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}
+footer {
+  text-align: center;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+footer a { color: var(--accent-2); text-decoration: none; }
+@media (max-width: 700px) {
+  nav { flex-direction: column; gap: 12px; align-items: flex-start; }
+  nav .links a { margin-left: 0; margin-right: 16px; }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a class="home" href="../index.html">← Portfolio</a>
+      <div class="links"><a href="index.html" class="">Overview</a><a href="architecture-recommendations.html" class="active">Architecture</a><a href="results/audit_report.html" class="">Dashboard</a><a href="results/audit_results.json" class="">JSON</a><a href="results/sample_crawl.csv" class="">CSV</a></div>
+    </nav>
+    <h1>Architecture Recommendations — Multi-Million URL Global Marketplace</h1>
+<h2>1. URL Taxonomy Principles</h2>
+<h3>Rules</h3>
+<ul>
+<li>Keep URLs lowercase, hyphen-separated, and under 75 characters.</li>
+<li>Avoid query parameters in canonical URLs except for pagination and faceted filters.</li>
+<li>Every market gets a clear ccTLD or language-folder path.</li>
+<li>Canonical pages never include session IDs, tracking parameters, or sort parameters.</li>
+</ul>
+<h3>Recommended Structure</h3>
+<pre><code>https://{market-domain}/
+├── /category/{category-slug}/
+│   ├── /category/{category-slug}/?page=2                    (paginated)
+│   └── /category/{category-slug}/?color=red&amp;style=modern   (faceted)
+├── /product/{product-slug}/
+├── /photo/{photo-id}-{descriptive-slug}/
+├── /discussion/{topic-id}-{slug}/
+├── /magazine/{article-slug}/
+├── /professional/{professional-id}-{slug}/
+└── /sitemap.xml  → sitemap index per market
+</code></pre>
+<h2>2. Hreflang Implementation</h2>
+<h3>Pattern</h3>
+<pre><code class="language-html">&lt;link rel=&quot;alternate&quot; hreflang=&quot;en-us&quot; href=&quot;https://example.com/product/{slug}/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;en-gb&quot; href=&quot;https://example.co.uk/product/{slug}/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;de&quot;     href=&quot;https://example.de/product/{slug}/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;x-default&quot; href=&quot;https://example.com/product/{slug}/&quot; /&gt;
+</code></pre>
+<h3>Implementation Notes</h3>
+<ul>
+<li>Place tags in <code>&lt;head&gt;</code> AND include in XML sitemaps as backup.</li>
+<li>Use self-referencing hreflang on every canonical page.</li>
+<li>Implement a shared ID (<code>page_uuid</code>) in the CMS to link equivalent pages across markets.</li>
+<li>Audit weekly via Screaming Frog / custom crawler for return-tag errors.</li>
+</ul>
+<h2>3. Faceted Navigation Rules</h2>
+<h3>Canonical Behavior</h3>
+<ul>
+<li>Default category page is canonical.</li>
+<li>Faceted pages use <code>rel="canonical"</code> to the default category page.</li>
+<li>For high-value facet combinations (e.g., <code>/sofas/material-leather/</code>), create clean URL and canonicalize to itself.</li>
+</ul>
+<h3>Pagination</h3>
+<ul>
+<li>Use <code>rel="next"</code> / <code>rel="prev"</code> historically, but primarily rely on canonical to root category.</li>
+<li>Include <code>?page=N</code> in sitemaps only if paginated pages rank independently.</li>
+</ul>
+<h2>4. Internal Linking Model</h2>
+<h3>Page Type Linking Rules</h3>
+<table>
+<thead>
+<tr>
+<th>Source Type</th>
+<th>Links To</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Home</td>
+<td>Top categories, trending products, latest magazine</td>
+<td>20–30</td>
+</tr>
+<tr>
+<td>Category</td>
+<td>Products, subcategories, related photos</td>
+<td>24–36</td>
+</tr>
+<tr>
+<td>Product</td>
+<td>Parent category, related products, relevant articles</td>
+<td>4–8</td>
+</tr>
+<tr>
+<td>Photo</td>
+<td>Source product/category, related photos, magazine</td>
+<td>3–5</td>
+</tr>
+<tr>
+<td>Editorial</td>
+<td>Relevant categories, products, professionals</td>
+<td>3–5</td>
+</tr>
+<tr>
+<td>Directory</td>
+<td>Categories served, portfolio photos, articles</td>
+<td>3–5</td>
+</tr>
+<tr>
+<td>Forum</td>
+<td>Related articles, products, categories</td>
+<td>2–4</td>
+</tr>
+</tbody>
+</table>
+<h3>Orphan Page Elimination</h3>
+<ul>
+<li>Generate automatic "Related" modules for every page type.</li>
+<li>Build XML sitemaps and submit to GSC, but do not rely on sitemaps alone for discovery.</li>
+<li>Run weekly crawl comparing sitemap vs. internal link reachability.</li>
+</ul>
+<h2>5. Sitemap Strategy</h2>
+<h3>Sitemap Index</h3>
+<ul>
+<li>One sitemap index per domain.</li>
+<li>Segregate sitemaps by page type:</li>
+<li><code>sitemap-products.xml</code></li>
+<li><code>sitemap-categories.xml</code></li>
+<li><code>sitemap-photos.xml</code></li>
+<li><code>sitemap-editorial.xml</code></li>
+<li><code>sitemap-forums.xml</code></li>
+<li><code>sitemap-professionals.xml</code></li>
+</ul>
+<h3>URL Limits</h3>
+<ul>
+<li>Keep individual sitemaps under 50,000 URLs / 50MB.</li>
+<li>Use lastmod date from CMS <code>updated_at</code>.</li>
+<li>Include only canonical, indexable URLs.</li>
+</ul>
+<h2>6. Performance (Core Web Vitals)</h2>
+<h3>Template-Level Targets</h3>
+<table>
+<thead>
+<tr>
+<th>Template</th>
+<th>LCP Target</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Home</td>
+<td>≤ 1.2s</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Category</td>
+<td>≤ 1.5s</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Product</td>
+<td>≤ 1.5s</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Photo gallery</td>
+<td>≤ 2.0s</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Editorial</td>
+<td>≤ 1.5s</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Forum</td>
+<td>≤ 2.0s</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<h3>Tactics</h3>
+<ul>
+<li>Lazy-load photos and forum avatars.</li>
+<li>Preload hero image on home/category/editorial.</li>
+<li>Defer non-critical JS on photo-heavy pages.</li>
+<li>Use responsive images with modern formats (WebP/AVIF).</li>
+</ul>
+<h2>7. Internationalization Beyond Hreflang</h2>
+<ul>
+<li>Localize title and meta description templates per market.</li>
+<li>Use local currency, units, and spelling.</li>
+<li>Host media on a CDN edge close to each market.</li>
+<li>Ensure local review signals for directory professionals.</li>
+</ul>
+<hr />
+<p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    <footer>
+      <p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    </footer>
+  </div>
+</body>
+</html>

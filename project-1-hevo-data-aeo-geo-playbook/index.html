@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Overview — Hevo Data AEO/GEO Playbook</title>
+  <style>
+:root {
+  --bg: #0a0a0f;
+  --card: #111118;
+  --text: #e8e8ed;
+  --muted: #9090a0;
+  --accent: #7c5cff;
+  --accent-2: #00d4aa;
+  --border: #1f1f2e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+nav a.home {
+  color: var(--accent-2);
+  text-decoration: none;
+  font-weight: 600;
+}
+nav .links a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+nav .links a:hover, nav .links a.active {
+  color: var(--accent);
+}
+h1 { font-size: 2rem; margin: 0 0 24px; }
+h2 { font-size: 1.4rem; margin: 36px 0 16px; color: var(--accent-2); }
+h3 { font-size: 1.15rem; margin: 28px 0 12px; }
+p { margin: 12px 0; }
+a { color: var(--accent-2); }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 12px;
+  text-align: left;
+}
+th { background: var(--card); color: var(--accent); }
+tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+code {
+  background: var(--card);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', Monaco, monospace;
+}
+pre {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}
+footer {
+  text-align: center;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+footer a { color: var(--accent-2); text-decoration: none; }
+@media (max-width: 600px) {
+  nav { flex-direction: column; gap: 12px; align-items: flex-start; }
+  nav .links a { margin-left: 0; margin-right: 16px; }
+  h1 { font-size: 1.5rem; }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a class="home" href="../index.html">← Portfolio</a>
+      <div class="links"><a href="index.html" class="">Overview</a><a href="aeo-content-map.html" class="">AEO Content Map</a><a href="forecast-model.html" class="">Forecast Model</a><a href="schema-brief.html" class="">Schema Brief</a><a href="llms.html" class="">llms.txt</a></div>
+    </nav>
+    <h1>Project 1 — Hevo Data AEO/GEO Playbook</h1>
+<h2>Executive Summary</h2>
+<p>Hevo Data is a no-code ETL/ELT data integration platform serving mid-market data teams that need fast, managed pipelines without dedicated data engineering resources. This playbook defines a 90-day AI-search (AEO/GEO) strategy to position Hevo as the answer inside ChatGPT, Gemini, and Claude for high-intent data integration and ETL buying questions.</p>
+<p>This artifact demonstrates Director-level ownership of:
+- AEO/GEO strategy
+- B2B SaaS product marketing SEO
+- Schema.org and <code>llms.txt</code> implementation
+- Cross-functional execution roadmap
+- Forecasting and measurement</p>
+<hr />
+<h2>1. Business Context</h2>
+<h3>Product Snapshot</h3>
+<ul>
+<li><strong>Company:</strong> Hevo Data</li>
+<li><strong>Website:</strong> https://hevodata.com</li>
+<li><strong>Category:</strong> No-code ETL/ELT data integration platform</li>
+<li><strong>Core value:</strong> Set up data pipelines in minutes without writing code; event-based transparent pricing</li>
+<li><strong>Target buyers:</strong> Data analysts, RevOps, growth teams, and small-to-mid-market data engineers</li>
+<li><strong>Key competitors:</strong> Fivetran, Airbyte, Stitch, Matillion, Rivery, Informatica</li>
+</ul>
+<h3>Why AEO/GEO Matters for Hevo</h3>
+<p>AI search engines are increasingly the first stop for B2B buyers. Queries like "best no-code ETL tool for Snowflake" or "Hevo vs Fivetran" are now being answered directly by ChatGPT, Gemini, and Claude. AEO/GEO ensures Hevo’s content, data, and authority signals are the sources those models cite.</p>
+<hr />
+<h2>2. Strategic Priorities</h2>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Objective</th>
+<th>AI-Search Intent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Own the comparison narrative</td>
+<td>"Hevo vs Fivetran", "Hevo vs Airbyte", "best no-code ETL"</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Capture integration-specific queries</td>
+<td>"Connect Salesforce to Snowflake", "Stripe to BigQuery pipeline"</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Build programmatic solution pages</td>
+<td>"no-code CDC replication", "schema drift handling"</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Earn citations through authority</td>
+<td>G2, Gartner Peer Insights, Reddit, data engineering blogs</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Enable model discoverability</td>
+<td><code>llms.txt</code>, structured data, entity clarity</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>3. AI-Citation Content Framework</h2>
+<h3>Questions Hevo Should Own</h3>
+<h4>Category 1: Tool Comparison</h4>
+<ul>
+<li>"What is the best no-code ETL tool for small data teams?"</li>
+<li>"Hevo vs Fivetran: which is easier to set up?"</li>
+<li>"Airbyte vs Hevo: which is better for teams without data engineers?"</li>
+<li>"Cheaper alternative to Fivetran for startups"</li>
+</ul>
+<h4>Category 2: Integration-Specific</h4>
+<ul>
+<li>"How do I sync Salesforce data to Snowflake without code?"</li>
+<li>"Best way to load Stripe data into BigQuery"</li>
+<li>"Connect HubSpot to Redshift automatically"</li>
+<li>"PostgreSQL CDC to BigQuery"</li>
+</ul>
+<h4>Category 3: Capability / Use Case</h4>
+<ul>
+<li>"How to handle schema drift in ETL pipelines"</li>
+<li>"What is reverse ETL and do I need it?"</li>
+<li>"No-code data pipeline monitoring tools"</li>
+<li>"How to replicate SaaS data to a data warehouse"</li>
+</ul>
+<h3>Content Format for AI Citations</h3>
+<p>Each answer target should be answered in a format AI models can easily extract and cite:
+- H2/H3 question mirror
+- 2–3 sentence direct answer
+- Bulleted comparison or step list
+- Real customer evidence (case study, G2 quote)
+- Internal link to deeper product or documentation page</p>
+<hr />
+<h2>4. <code>llms.txt</code> for Hevo Data</h2>
+<p>See <a href="llms.txt"><code>llms.txt</code></a> for the full implementation.</p>
+<h3>Purpose</h3>
+<p><code>llms.txt</code> helps AI crawlers understand Hevo’s site structure, trust signals, and most citation-worthy pages.</p>
+<h3>Key Sections</h3>
+<ul>
+<li><strong>Site identity</strong> — what Hevo is and who it serves</li>
+<li><strong>Crawl preferences</strong> — allowed and disallowed sections</li>
+<li><strong>Citation-ready pages</strong> — comparison pages, integration guides, case studies, docs</li>
+<li><strong>Authority signals</strong> — G2 profile, Gartner, SOC 2, customer logos</li>
+<li><strong>Product facts</strong> — connector count, free tier, pricing model</li>
+</ul>
+<hr />
+<h2>5. Schema.org Implementation Brief</h2>
+<h3>Recommended Markup</h3>
+<table>
+<thead>
+<tr>
+<th>Page Type</th>
+<th>Schema Type</th>
+<th>Business Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Homepage</td>
+<td><code>Organization</code>, <code>SoftwareApplication</code></td>
+<td>Entity clarity for brand queries</td>
+</tr>
+<tr>
+<td>Pricing</td>
+<td><code>Offer</code>, <code>AggregateOffer</code></td>
+<td>Pricing model transparency in AI answers</td>
+</tr>
+<tr>
+<td>Integration pages</td>
+<td><code>HowTo</code>, <code>FAQPage</code></td>
+<td>Capture connector-specific queries</td>
+</tr>
+<tr>
+<td>Comparison pages</td>
+<td><code>WebPage</code> + <code>FAQPage</code></td>
+<td>Own vs-pages in AI citations</td>
+</tr>
+<tr>
+<td>Case studies</td>
+<td><code>CaseStudy</code>, <code>Organization</code> (customer)</td>
+<td>Trust and social proof</td>
+</tr>
+<tr>
+<td>Docs / help</td>
+<td><code>TechArticle</code>, <code>HowTo</code></td>
+<td>Support and implementation queries</td>
+</tr>
+</tbody>
+</table>
+<h3>Priority Schema Fields</h3>
+<ul>
+<li><code>name</code>, <code>applicationCategory</code>, <code>operatingSystem</code>, <code>offers</code>, <code>aggregateRating</code></li>
+<li><code>featureList</code> for key product capabilities</li>
+<li><code>sameAs</code> linking to G2, LinkedIn, Crunchbase</li>
+<li><code>FAQPage</code> markup for comparison and integration pages</li>
+</ul>
+<hr />
+<h2>6. 90-Day Execution Roadmap</h2>
+<h3>Phase 1 — Foundation (Days 1–30)</h3>
+<ul>
+<li>[ ] Publish <code>llms.txt</code> at root</li>
+<li>[ ] Roll out <code>Organization</code> + <code>SoftwareApplication</code> schema sitewide</li>
+<li>[ ] Audit and refresh top 10 comparison pages for AEO formatting</li>
+<li>[ ] Build FAQ schema for top 20 integration pages</li>
+<li>[ ] Define AI-search KPI baseline (brand mentions, cited URLs)</li>
+</ul>
+<h3>Phase 2 — Scale (Days 31–60)</h3>
+<ul>
+<li>[ ] Launch 5 new comparison pages (Hevo vs X)</li>
+<li>[ ] Launch 10 new integration-specific solution pages</li>
+<li>[ ] Add case-study schema and customer quote modules</li>
+<li>[ ] Pitch 3 data-engineering blogs for authority citations</li>
+<li>[ ] Begin G2/Gartner review-response cadence</li>
+</ul>
+<h3>Phase 3 — Optimize (Days 61–90)</h3>
+<ul>
+<li>[ ] Compare AI-engine citation share vs competitors</li>
+<li>[ ] Refresh underperforming pages based on AI answer gaps</li>
+<li>[ ] Launch programmatic "Connect [Source] to [Destination]" page series</li>
+<li>[ ] Build internal AEO dashboard</li>
+<li>[ ] Present 90-day results to leadership</li>
+</ul>
+<hr />
+<h2>7. Measurement Framework</h2>
+<h3>Leading Indicators (Weekly)</h3>
+<ul>
+<li>Brand mention count inside AI answers for target query sets</li>
+<li>Citation URL share (Hevo pages cited vs competitor pages)</li>
+<li>New AEO-optimized pages indexed</li>
+<li>Schema markup validity score</li>
+</ul>
+<h3>Lagging Indicators (Monthly)</h3>
+<ul>
+<li>Organic traffic to comparison and integration pages</li>
+<li>Branded search volume trend</li>
+<li>Demo/signup conversions from organic search</li>
+<li>Backlinks and referring domains from AEO content</li>
+</ul>
+<h3>Forecast Model</h3>
+<p>See <a href="forecast-model.md"><code>forecast-model.md</code></a> for the 90-day forecast assumptions and model.</p>
+<hr />
+<h2>8. RACI</h2>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>SEO (You)</th>
+<th>Product</th>
+<th>Engineering</th>
+<th>Content/PMM</th>
+<th>PR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>llms.txt</code> + schema rollout</td>
+<td>A</td>
+<td>C</td>
+<td>R</td>
+<td>C</td>
+<td>I</td>
+</tr>
+<tr>
+<td>Comparison page content</td>
+<td>A</td>
+<td>C</td>
+<td>I</td>
+<td>R</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Integration page templates</td>
+<td>A</td>
+<td>R</td>
+<td>R</td>
+<td>C</td>
+<td>I</td>
+</tr>
+<tr>
+<td>Case-study schema</td>
+<td>A</td>
+<td>C</td>
+<td>R</td>
+<td>R</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Authority citations / PR</td>
+<td>A</td>
+<td>I</td>
+<td>I</td>
+<td>C</td>
+<td>R</td>
+</tr>
+<tr>
+<td>KPI reporting</td>
+<td>A</td>
+<td>I</td>
+<td>I</td>
+<td>C</td>
+<td>I</td>
+</tr>
+</tbody>
+</table>
+<p><strong>R = Responsible, A = Accountable, C = Consulted, I = Informed</strong></p>
+<hr />
+<h2>9. Files in This Project</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="README.md"><code>README.md</code></a></td>
+<td>This file — the strategic playbook</td>
+</tr>
+<tr>
+<td><a href="llms.txt"><code>llms.txt</code></a></td>
+<td>Machine-readable AI-search site guide</td>
+</tr>
+<tr>
+<td><a href="forecast-model.md"><code>forecast-model.md</code></a></td>
+<td>90-day traffic and citation forecast</td>
+</tr>
+<tr>
+<td><a href="schema-brief.md"><code>schema-brief.md</code></a></td>
+<td>Detailed Schema.org markup brief</td>
+</tr>
+<tr>
+<td><a href="aeo-content-map.md"><code>aeo-content-map.md</code></a></td>
+<td>Full question-to-page mapping</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Built as a Director of SEO &amp; AEO portfolio piece. All product context is based on publicly available information about Hevo Data.</em></p>
+<p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    <footer>
+      <p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Overview — Technical SEO Audit Simulator</title>
+  <style>
+:root {
+  --bg: #0a0a0f;
+  --card: #111118;
+  --text: #e8e8ed;
+  --muted: #9090a0;
+  --accent: #7c5cff;
+  --accent-2: #00d4aa;
+  --border: #1f1f2e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+nav a.home {
+  color: var(--accent-2);
+  text-decoration: none;
+  font-weight: 600;
+}
+nav .links a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+nav .links a:hover, nav .links a.active {
+  color: var(--accent);
+}
+h1 { font-size: 2rem; margin: 0 0 24px; }
+h2 { font-size: 1.4rem; margin: 36px 0 16px; color: var(--accent-2); }
+h3 { font-size: 1.15rem; margin: 28px 0 12px; }
+p { margin: 12px 0; }
+a { color: var(--accent-2); }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 12px;
+  text-align: left;
+}
+th { background: var(--card); color: var(--accent); }
+tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+code {
+  background: var(--card);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', Monaco, monospace;
+}
+pre {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}
+footer {
+  text-align: center;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+footer a { color: var(--accent-2); text-decoration: none; }
+@media (max-width: 700px) {
+  nav { flex-direction: column; gap: 12px; align-items: flex-start; }
+  nav .links a { margin-left: 0; margin-right: 16px; }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a class="home" href="../index.html">← Portfolio</a>
+      <div class="links"><a href="index.html" class="active">Overview</a><a href="architecture-recommendations.html" class="">Architecture</a><a href="results/audit_report.html" class="">Dashboard</a><a href="results/audit_results.json" class="">JSON</a><a href="results/sample_crawl.csv" class="">CSV</a></div>
+    </nav>
+    <h1>Project 2 — Multi-Million URL Technical SEO Audit Simulator</h1>
+<h2>Executive Summary</h2>
+<p>This project simulates a technical SEO audit of a global multi-vertical marketplace with <strong>14 regional domains</strong> and <strong>~1.05 million URLs</strong>. The audit demonstrates Director-level ability to identify, prioritize, and roadmap technical SEO fixes at the scale of a Houzz-like portfolio.</p>
+<p>The audit covers:
+- Large-scale crawl simulation and issue detection
+- Hreflang and multi-geo architecture analysis
+- On-page SEO issues (titles, meta descriptions, canonicals)
+- Performance signals (Core Web Vitals / LCP)
+- Data-driven prioritization by ROI
+- Engineering backlog with effort and impact estimates</p>
+<p>All data is simulated to avoid exposing any real company's proprietary crawl data, while the methodology is identical to what would be used on a live multi-million URL site.</p>
+<hr />
+<h2>1. Audit Scope</h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simulated site type</td>
+<td>Global marketplace (B2C + B2B directory, photos, forums, editorial)</td>
+</tr>
+<tr>
+<td>Total URLs</td>
+<td>1,050,000</td>
+</tr>
+<tr>
+<td>Regional domains</td>
+<td>14 (example.com, .co.uk, .de, .fr, .com.au, .ca, .es, .it, .jp, .in, .mx, .br, .nl, .sg)</td>
+</tr>
+<tr>
+<td>Page types</td>
+<td>Home, Category, Product, Photo, Forum, Editorial, Professional Directory</td>
+</tr>
+<tr>
+<td>Issues analyzed</td>
+<td>10 categories</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. Methodology</h2>
+<ol>
+<li><strong>Crawl simulation</strong> — generated 1.05M URLs across 14 domains and 7 page types using realistic distributions.</li>
+<li><strong>Issue tagging</strong> — applied issue probabilities weighted by page type and domain.</li>
+<li><strong>Aggregation</strong> — counted issues by URL, page type, and domain.</li>
+<li><strong>Prioritization</strong> — scored each issue by <code>ROI = estimated traffic impact / engineering effort hours</code>.</li>
+<li><strong>Reporting</strong> — exported results to JSON, sample CSV, and an HTML dashboard.</li>
+</ol>
+<h3>Tools Used</h3>
+<ul>
+<li>Python 3 + pandas-style simulation</li>
+<li>Custom crawl simulation script: <a href="audit.py"><code>audit.py</code></a></li>
+<li>HTML report generated from results: <a href="results/audit_report.html"><code>results/audit_report.html</code></a></li>
+</ul>
+<hr />
+<h2>3. Key Findings</h2>
+<h3>Top Priority Issues (by ROI)</h3>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Issue</th>
+<th>Affected URLs</th>
+<th>% of Site</th>
+<th>Severity</th>
+<th>Est. Impact</th>
+<th>Est. Effort (hrs)</th>
+<th>ROI Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Hreflang missing</td>
+<td>~547,000</td>
+<td>52.1%</td>
+<td>High</td>
+<td>Very High</td>
+<td>160</td>
+<td>Highest</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Noindex pages</td>
+<td>~31,900</td>
+<td>3.0%</td>
+<td>High</td>
+<td>High</td>
+<td>40</td>
+<td>Very High</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Duplicate title tags</td>
+<td>~126,000</td>
+<td>12.0%</td>
+<td>Medium</td>
+<td>High</td>
+<td>80</td>
+<td>High</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Orphan pages</td>
+<td>~84,000</td>
+<td>8.0%</td>
+<td>High</td>
+<td>Very High</td>
+<td>120</td>
+<td>High</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Missing meta descriptions</td>
+<td>~188,600</td>
+<td>18.0%</td>
+<td>Low</td>
+<td>Medium</td>
+<td>60</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Slow LCP</td>
+<td>~268,900</td>
+<td>25.6%</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>200</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Faceted duplicate content</td>
+<td>~99,600</td>
+<td>9.5%</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>100</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Broken internal links</td>
+<td>~42,300</td>
+<td>4.0%</td>
+<td>High</td>
+<td>Medium</td>
+<td>80</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Non-canonical self references</td>
+<td>~52,400</td>
+<td>5.0%</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>70</td>
+<td>Low-Medium</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Redirect chains</td>
+<td>~31,400</td>
+<td>3.0%</td>
+<td>Low</td>
+<td>Low</td>
+<td>60</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table>
+<h3>Issue Distribution by Page Type</h3>
+<table>
+<thead>
+<tr>
+<th>Page Type</th>
+<th>Avg Issues per URL</th>
+<th>Most Common Issue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Category</td>
+<td>1.8</td>
+<td>Faceted duplicates, slow LCP</td>
+</tr>
+<tr>
+<td>Product</td>
+<td>1.4</td>
+<td>Missing meta descriptions, slow LCP</td>
+</tr>
+<tr>
+<td>Photo</td>
+<td>1.6</td>
+<td>Slow LCP, hreflang missing</td>
+</tr>
+<tr>
+<td>Forum</td>
+<td>1.3</td>
+<td>Orphan, duplicate titles</td>
+</tr>
+<tr>
+<td>Editorial</td>
+<td>1.5</td>
+<td>Slow LCP, missing meta descriptions</td>
+</tr>
+<tr>
+<td>Directory</td>
+<td>1.4</td>
+<td>Hreflang missing, orphan</td>
+</tr>
+</tbody>
+</table>
+<h3>Hreflang Findings</h3>
+<ul>
+<li>52% of non-US URLs are missing hreflang annotations entirely.</li>
+<li>This is the single largest technical SEO opportunity on the site.</li>
+<li>Recommendation: implement self-referencing + x-default hreflang in <code>&lt;head&gt;</code> and XML sitemaps.</li>
+</ul>
+<hr />
+<h2>4. Prioritized Engineering Backlog</h2>
+<h3>Sprint 1 — Quick Wins + High ROI</h3>
+<ul>
+<li>Fix noindex tags on valuable paginated and filtered pages</li>
+<li>Resolve non-canonical self-references</li>
+<li>Fix redirect chains over 2 hops</li>
+</ul>
+<h3>Sprint 2 — Architecture</h3>
+<ul>
+<li>Implement global hreflang matrix across all 14 domains</li>
+<li>Add canonical + pagination rules for faceted navigation</li>
+<li>Internal linking program to reduce orphan pages</li>
+</ul>
+<h3>Sprint 3 — Scale</h3>
+<ul>
+<li>Title tag uniqueness pass across product and directory pages</li>
+<li>Meta description template system by page type</li>
+<li>Core Web Vitals optimization for photo and editorial templates</li>
+</ul>
+<hr />
+<h2>5. Recommended Site Architecture</h2>
+<h3>URL Taxonomy</h3>
+<pre><code>/
+/category/{category-slug}/
+/category/{category-slug}/?facets=...
+/product/{product-slug}/
+/photo/{photo-id}-{slug}/
+/discussion/{topic-id}-{slug}/
+/magazine/{article-slug}/
+/professional/{professional-id}-{slug}/
+</code></pre>
+<h3>Domain Strategy</h3>
+<ul>
+<li>Use ccTLDs + language subfolders only where market size justifies.</li>
+<li>Implement hreflang between equivalent pages on all domains.</li>
+<li>Centralize sitemap index per domain; cross-submit to Google Search Console.</li>
+</ul>
+<h3>Internal Linking Model</h3>
+<ul>
+<li>Category pages link to top 24 products + 6 related photos.</li>
+<li>Product pages link back to parent category + 4 complementary products.</li>
+<li>Editorial articles link to 3–5 relevant category/product pages.</li>
+<li>Directory pages link to category pages and related editorial content.</li>
+</ul>
+<hr />
+<h2>6. Measurement</h2>
+<h3>KPIs</h3>
+<ul>
+<li>Indexed URL ratio (indexed / submitted)</li>
+<li>Hreflang error count in Google Search Console</li>
+<li>Orphan page count (weekly)</li>
+<li>Core Web Vitals pass rate by page type</li>
+<li>Organic traffic change by domain and page type</li>
+</ul>
+<h3>Forecast</h3>
+<ul>
+<li>Fixing hreflang alone could recover 15–25% of international organic traffic.</li>
+<li>Resolving orphan pages + duplicate titles could lift crawl efficiency by 20%.</li>
+<li>Combined 90-day program estimate: 10–18% organic traffic increase on affected templates.</li>
+</ul>
+<hr />
+<h2>7. Files in This Project</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="README.md"><code>README.md</code></a></td>
+<td>Strategic audit playbook</td>
+</tr>
+<tr>
+<td><a href="audit.py"><code>audit.py</code></a></td>
+<td>Crawl simulator and analysis engine</td>
+</tr>
+<tr>
+<td><a href="results/audit_results.json"><code>results/audit_results.json</code></a></td>
+<td>Structured audit output</td>
+</tr>
+<tr>
+<td><a href="results/audit_report.html"><code>results/audit_report.html</code></a></td>
+<td>Visual HTML report</td>
+</tr>
+<tr>
+<td><a href="results/sample_crawl.csv"><code>results/sample_crawl.csv</code></a></td>
+<td>100K-row crawl sample</td>
+</tr>
+<tr>
+<td><a href="architecture-recommendations.md"><code>architecture-recommendations.md</code></a></td>
+<td>Detailed architecture and taxonomy</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Built as a Director of SEO &amp; AEO portfolio piece. All data is simulated.</em></p>
+<p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    <footer>
+      <p>Built by Rajesh Kumar | Powered by <a href="https://www.brandops.site">BrandOps Site</a></p>
+    </footer>
+  </div>
+</body>
+</html>
